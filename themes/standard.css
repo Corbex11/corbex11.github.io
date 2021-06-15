@@ -1,5 +1,5 @@
 body {
-	background: radial-gradient(ellipse at center,  #242464 0%,black 100%); /* W3C */
+	background: linear-gradient(132deg, rgb(2,0,36), rgb(78,31,12), rgb(255,6,2));
 	font-family: Verdana;
 	margin: 0;
 	padding: 0;
