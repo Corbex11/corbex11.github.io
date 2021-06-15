@@ -11,7 +11,7 @@ function getUrlVars () {
 
 function updatetxt () {
 	if (!getUrlVars().f) {
-		location.href = `${location.origin}/read.html?f=welcome.txt`
+		// location.href = `${location.origin}/read.html?f=welcome.txt`
 	} else {
 		fetch(`${location.origin}/articles/${getUrlVars().f}`).then(function(data) {
 			data.text().then(function (txt) {

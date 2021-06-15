@@ -58,6 +58,22 @@ body {
 	gap: 12px;
 }
 
+.content2 {
+	color: black;
+	width: 100%;
+	padding-left: 10%;
+	padding-right: 10%;
+	padding-top: 5%;
+	padding-bottom: 5%;
+    box-sizing: border-box;
+	display: inline-flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	align-content: center;
+	align-items: center;
+	gap: 12px;
+}
+
 .box {
 	background: white;
 	font-family: monospace;
