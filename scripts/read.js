@@ -1,3 +1,5 @@
+// c.f.
+
 // Main functions ++
 function getUrlVars () {
 	var vars = {};
