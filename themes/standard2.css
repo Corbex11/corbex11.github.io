@@ -1,0 +1,159 @@
+body {
+	background: linear-gradient(132deg, rgb(2,0,36), rgb(78,31,12), rgb(255,6,2));
+	font-family: Verdana;
+	animation-name: fadeIn;
+	animation-duration: 4s;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.hugewelcometxt {
+	font-size: 80px;
+	color: rgb(255,255,255);
+}
+
+.infoboard {
+	border-style: solid;
+	border-width: 2px;
+	border-top-left-radius: 60px;
+	border-color: rgb(255,0,0);
+	background-color: rgb(20,0,0);
+	font-size: 35px;
+	color: rgb(255,255,255);
+	text-shadow: 1px 1px 1px rgb(0,0,0);
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	overflow-y: scroll;
+	max-height: 50%;
+	padding: 5%;
+	animation-name: enterSlideDown;
+	animation-duration: 2s;
+}
+
+.timestamp {
+	font-size: 10px;
+	color: rgb(100,100,100);
+	text-shadow: 1px 1px 0px rgb(0,0,0)
+}
+
+.unselectable {
+	-moz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.options {
+	padding: 5%;
+	border-style: solid;
+	border-width: 2px;
+	border-top-left-radius: 60px;
+	border-color: rgb(255,0,0);
+	background-color: rgb(20,0,0);
+	font-size: 40px;
+	color: rgb(255,255,255);
+	text-shadow: 1px 1px 0px rgb(0,0,0);
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	animation-name: enterSlideDown;
+	animation-duration: 2s;
+	display: none;
+	overflow-y: scroll;
+	max-height: 50%;
+}
+
+img {
+	z-index:-1;
+}
+
+.topnav {
+	background-color: rgb(100,100,100);
+	overflow: hidden;
+	-moz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.topnav a {
+	float: left;
+	background-color: rgb(80,80,80);
+	color: rgb(0,200,200);
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-family: verdana;
+}
+.topnav a:hover {
+	background-color: rgb(200,200,200);
+	color: black;
+}
+.topnav a.active {
+	background-color: rgb(0,100,100);
+	color: white;
+}
+
+/* Animations */
+@keyframes fadeIn {
+	0% {opacity:0;}
+	100% {opacity:1;}
+}
+@keyframes fadeOut {
+	0% {opacity:1;}
+	100% {opacity:0;}
+}
+@keyframes enterSlideDown {
+	0%   {
+		opacity: 0;
+		top: 0%;
+	}
+	100% {
+		opacity: 1;
+		top: 50%;
+	}
+}
+@keyframes enterSlideRight {
+	0%   {
+		opacity: 0;
+		left: 0%;
+	}
+	100% {
+		opacity: 1;
+		left: 50%;
+	}
+}
+
+/* unvisited link */
+a:link {
+	color: rgb(255,255,255);
+}
+/* visited link */
+a:visited {
+	color: rgb(200,200,200);
+}
+/* mouse over link */
+a:hover {
+	color: rgb(100,100,100);
+}
+/* selected link */
+a:active {
+	color: rgb(0,150,150);
+}
+
+::-webkit-scrollbar {
+	width: 20px;
+}
+::-webkit-scrollbar-track {
+	background: rgb(40,0,0);
+}
+::-webkit-scrollbar-thumb {
+	background:rgb(255,0,0);
+}
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
