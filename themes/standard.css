@@ -42,7 +42,7 @@ body {
 }
 
 .content {
-	background: linear-gradient(132deg, rgb(255,6,2), rgb(78,31,12), rgb(2,0,36));
+	background: rgb(220,220,220);
 	color: black;
 	width: 100%;
 	padding-left: 10%;
@@ -50,12 +50,7 @@ body {
 	padding-top: 5%;
 	padding-bottom: 5%;
     box-sizing: border-box;
-	display: inline-flex;
-	flex-flow: row wrap;
-	justify-content: space-around;
-	align-content: center;
-	align-items: center;
-	gap: 12px;
+	display: inline-block;
 }
 
 .content2 {
@@ -89,8 +84,7 @@ body {
 	max-width: 200px;
 	min-height: 200px;
 	max-height: 400px;
-	flex: 0 1 auto;
-	align-self: center;
+	float: left;
 }
 
 .box:hover {
