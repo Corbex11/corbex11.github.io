@@ -75,7 +75,8 @@ window.onload = function() {
     var date = new Date();
     var hour = date.getHours();
     var infoboard = document.getElementById("infoboard");
-    infoboard.innerHTML = `<marquee width="100%" direction="left">Good ${hour >= 12 ? hour >= 17 && hour < 20 ? "evening" : "afternoon" : "morning"}! (i) Information Board (i) <a style="color:red">| <i>welcome</i></a></marquee><hr><li>${days[date.getDay()]}, ${suffix_of(date.getDate())} of ${months[date.getMonth()]} ${date.getFullYear()}</li>`
+    infoboard.innerHTML = `<marquee width="100%" direction="left">(i) Information Board (i)</a></marquee><hr><li>${days[date.getDay()]}, ${suffix_of(date.getDate())} of ${months[date.getMonth()]} ${date.getFullYear()}</li>`
+    infoboard.innerHTML += `<hr>Good ${hour >= 12 ? hour >= 17 && hour < 20 ? "evening" : "afternoon" : "morning"}!</hr>`;
     eventsOnDay(date.getMonth(), date.getDate()).forEach((msg) => {
         infoboard.innerHTML += `<li>${msg}</li>`;
     })
