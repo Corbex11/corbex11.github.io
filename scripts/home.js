@@ -20,7 +20,8 @@ var months = [
     "September",
     "October",
     "November",
-    "December"]
+    "December"
+]
 
 function suffix_of(i) {
     var j = i % 10,
@@ -72,7 +73,7 @@ window.onload = function() {
     
     // Manage information board ++
     var date = new Date()
-    var infoboard = document.getElementById("infoboard")
+    var infoboard = document.getElementById("welcome")
     infoboard.innerHTML = `<marquee width="100%" direction="left">Information Board <a style="color:red">| <i>welcome</i></a></marquee><hr><li>${days[date.getDay()]}, ${suffix_of(date.getDate())} of ${months[date.getMonth()]} ${date.getFullYear()}</li>`
     eventsOnDay(date.getMonth(), date.getDate()).forEach((msg) => {
         infoboard.innerHTML += `<li>${msg}</li>`
