@@ -50,7 +50,12 @@ body {
 	padding-top: 5%;
 	padding-bottom: 5%;
     box-sizing: border-box;
-	display: inline-block;
+	display: inline-flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	align-content: center;
+	align-items: center;
+	gap: 12px;
 }
 
 .content2 {
@@ -73,9 +78,7 @@ body {
 	background: white;
 	font-family: monospace;
 	padding: 20px;
-	border-style: solid;
-	border-width: 1px;
-	border-color: rgb(0, 100, 160);
+	box-shadow: 4px 4px 5px black;
 	animation-name: fadeIn;
 	animation-duration: 4s;
 	word-wrap: break-word;
@@ -84,7 +87,8 @@ body {
 	max-width: 200px;
 	min-height: 200px;
 	max-height: 400px;
-	float: left;
+	flex: 0 1 auto;
+	align-self: center;
 }
 
 .box:hover {
