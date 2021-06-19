@@ -1,3 +1,6 @@
+/* callum fisher - corbex11@gmail.com
+last updated: 19/6/21 */
+
 function toggleoptions() {
     var options = document.getElementById("options")
     if (window.getComputedStyle(options).display == "none") {

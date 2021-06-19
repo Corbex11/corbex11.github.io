@@ -1,3 +1,6 @@
+/* callum fisher - corbex11@gmail.com
+last updated: 19/6/21 */
+
 var events = [
     {month:12,date:25,msg:"Merry Christmas!"},
     {month:10,date:31,msg:"Happy Halloween!"},

@@ -1,3 +1,6 @@
+/* callum fisher - corbex11@gmail.com
+last updated: 19/6/21 */
+
 var days = [
     "Sunday",
     "Monday",
@@ -53,33 +56,33 @@ function toggleinfoboard() {
 
 window.onload = function() {
     // Fade-in to the colour specified in the stylesheet ++
-    /* var rgb = window.getComputedStyle(document.body).backgroundColor.split("rgb(")[1].split(")")[0].replace(/ /g,"").split(",")
-    document.body.style.backgroundColor = "rgb(0,0,0)"
+    var rgb = window.getComputedStyle(document.body).backgroundColor.split("rgb(")[1].split(")")[0].replace(/ /g,"").split(",");
+    document.body.style.backgroundColor = "rgb(0,0,0)";
     setTimeout(function() {
-        var r = 0
-        var g = 0
-        var b = 0
+        var r = 0;
+        var g = 0;
+        var b = 0;
         var int = setInterval(function() {
             if (rgb[0] >= r) {r += 1}
             if (rgb[1] >= g) {g += 1}
             if (rgb[2] >= b) {b += 1}
             document.body.style.backgroundColor = `rgb(${r},${g},${b})`
             if (r >= rgb[0] && g >= rgb[1] && b >= rgb[2]) {
-                clearInterval(int)
+                clearInterval(int);
             }
-        }, 50)
-    }, 2000) */
+        }, 50);
+    }, 2000);
     // Fade-in to the colour specified in the stylesheet --
     
     // Manage information board ++
     var date = new Date();
     var hour = date.getHours();
-    var infoboard = document.getElementById("infoboard");
-    infoboard.innerHTML = `<marquee width="100%" direction="left">(i) Information Board (i)</a></marquee><hr><li>${days[date.getDay()]}, ${suffix_of(date.getDate())} of ${months[date.getMonth()]} ${date.getFullYear()}</li>`
-    infoboard.innerHTML += `<li>Good ${hour >= 12 ? hour >= 17 && hour < 20 ? "evening" : "afternoon" : "morning"}!</li>`;
-    eventsOnDay(date.getMonth(), date.getDate()).forEach((msg) => {
-        infoboard.innerHTML += `<li>${msg}</li>`;
-    })
+    //var infoboard = document.getElementById("infoboard");
+    //infoboard.innerHTML = `<marquee width="100%" direction="left">(i) Information Board (i)</a></marquee><hr><li>${days[date.getDay()]}, ${suffix_of(date.getDate())} of ${months[date.getMonth()]} ${date.getFullYear()}</li>`;
+    //infoboard.innerHTML += `<li>Good ${hour >= 12 ? hour >= 17 && hour < 20 ? "evening" : "afternoon" : "morning"}!</li>`;
+    //eventsOnDay(date.getMonth(), date.getDate()).forEach((msg) => {
+    //    infoboard.innerHTML += `<li>${msg}</li>`;
+    //});
     // infoboard.innerHTML += "<li>test</li>"
     // Manage information board ++
 }
