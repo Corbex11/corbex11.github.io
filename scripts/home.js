@@ -1,5 +1,5 @@
 /* callum fisher - corbex11@gmail.com
-last updated: 04/7/21 */
+last updated: 4/7/21 */
 
 var days = [
     "Sunday",
@@ -41,7 +41,7 @@ function suffix_of(i) {
     return i + "th";
 }
 
-function toggleinfoboard() {
+/* function toggleinfoboard() {
     var infoboard = document.getElementById("infoboard")
     if (window.getComputedStyle(infoboard).display == "none") {
         infoboard.style.display = "block"
@@ -52,7 +52,7 @@ function toggleinfoboard() {
             infoboard.style.animation = ""
         }, 400)
     }
-}
+} */
 
 /* window.onload = function() {
     var date = new Date();

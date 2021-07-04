@@ -1,5 +1,5 @@
 /* callum fisher - corbex11@gmail.com
-last updated: 19/6/21 */
+last updated: 4/7/21 */
 
 var events = [
     {month:12,date:25,msg:"Merry Christmas!"},
@@ -7,22 +7,22 @@ var events = [
     {month:11,date:11,msg:"Remembrance Day"}
 ]
 
-function eventsOnDay(m, d) {
-    var results = []
+function eventsOnDay(month, date) {
+    var results = [];
     events.forEach((event) => {
-        if (event.month == m+1 && event.date == d) {
-            results.push(event.msg)
+        if (event.month == month+1 && event.date == date) {
+            results.push(event.msg);
         }
-    })
-    return results
+    });
+    return results;
 }
 
-function eventOnDay(m, d) {
-    var results = []
+function eventOnDay(month, date) {
+    var results = [];
     events.forEach((event) => {
-        if (event.month == m+1 && event.date == d) {
-            results.push(event.msg)
+        if (event.month == month+1 && event.date == date) {
+            results.push(event.msg);
         }
-    })
-    return results[results.length * Math.random() | 0] || "Enjoy today."
+    });
+    return results[results.length * Math.random() | 0] || "Enjoy today.";
  }
