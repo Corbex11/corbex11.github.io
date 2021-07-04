@@ -1,5 +1,5 @@
 /* callum fisher - corbex11@gmail.com
-last updated: 19/6/21 */
+last updated: 04/7/21 */
 
 // Main functions ++
 function getUrlVars () {
@@ -12,11 +12,11 @@ function getUrlVars () {
 
 function updatetxt () {
 	if (!getUrlVars().f) {
-		location.href = `${location.origin}/read.html?f=welcome.txt`;
+		location.href = `${location.href}?f=welcome.html`;
 	} else {
 		fetch(`${location.origin}/articles/${getUrlVars().f}`).then(function(data) {
-			data.text().then(function (txt) {
-				document.getElementById("txt").innerHTML = txt;
+			data.text().then(function (article) {
+				document.getElementById("txt").innerHTML = article;
 			});
 		});
 	}
@@ -89,21 +89,4 @@ window.onload = function() {
 		}
 	}
 	// Manage Lighting --
-	// Fade-in to the colour specified in the stylesheet ++
-	var rgb = window.getComputedStyle(document.body).backgroundColor.split("rgb(")[1].split(")")[0].replace(/ /g,"").split(",");
-	document.body.style.backgroundColor = "rgb(0,0,0)";
-	setTimeout(function() {
-		var r = 0;
-		var g = 0;
-		var b = 0;
-		var int = setInterval(function() {
-			if (rgb[0] >= r) {r += 1}
-			if (rgb[1] >= g) {g += 1}
-			if (rgb[2] >= b) {b += 1}
-			document.body.style.backgroundColor = `rgb(${r},${g},${b})`
-			if (r >= rgb[0] && g >= rgb[1] && b >= rgb[2]) {
-				clearInterval(int);
-			}
-		}, 50);
-	}, 2000);
 }

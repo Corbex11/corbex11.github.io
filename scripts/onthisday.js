@@ -24,5 +24,5 @@ function eventOnDay(m, d) {
             results.push(event.msg)
         }
     })
-    return results[results.length * Math.random() | 0] || "Hope you have a good day!"
+    return results[results.length * Math.random() | 0] || "Enjoy today."
  }
