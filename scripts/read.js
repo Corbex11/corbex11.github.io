@@ -2,7 +2,6 @@
 last updated: 4/7/21 */
 
 var lightOn = true;
-var navbarNotifs = [];
 
 
 function getUrlVars () {
@@ -25,20 +24,6 @@ function updateContent () { // Update what's displayed in the Content Window:
 		});
 	}
 }
-
-
-// Notifications:
-var navbarNotifs = [];
-setInterval(function() {
-	if (navbarNotifs.length > 0) {
-		document.getElementById("notification").innerHTML = navbarNotifs[0];
-		setTimeout(function() {
-			navbarNotifs.shift();
-		}, 4000);
-	} else {
-		document.getElementById("notification").innerHTML = "";
-	}
-}, 1000);
 
 
 // Lighting:
@@ -76,12 +61,10 @@ window.onload = function() {
 		if (getUrlVars().dark == 1) {
 			if (lightOn) {
 				toggleLight(false);
-				navbarNotifs.push("Light disabled by URL");
 			}
 		} else if (getUrlVars().dark == 0) {
 			if (!lightOn) {
 				toggleLight(false);
-				navbarNotifs.push("Light enabled by URL");
 			}
 		}
 	}
