@@ -80,10 +80,10 @@ body {
 	animation-duration: 4s;
 	word-wrap: break-word;
 	overflow: hidden;
-	min-width: 10%;
-	max-width: 10%;
-	min-height: 10%;
-	max-height: 10%;
+	min-width: 200px;
+	max-width: 200px;
+	min-height: 200px;
+	max-height: 400;
 	flex: 0 1 auto;
 	align-self: center;
 }
