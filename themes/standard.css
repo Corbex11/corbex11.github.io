@@ -44,7 +44,7 @@ body {
 .content {
 	background: rgb(220,220,220);
 	color: black;
-	font-size: 16pt;
+	font-size: 12pt;
 	width: 100%;
 	padding-left: 10%;
 	padding-right: 10%;
@@ -60,9 +60,9 @@ body {
 }
 
 .content2 {
-	background: rgb(220,220,220);
+	background: rgb(255,255,255);
 	color: black;
-	font-size: 16pt;
+	font-size: 12pt;
 	width: 100%;
 	padding-left: 10%;
 	padding-right: 10%;
