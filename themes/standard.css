@@ -75,7 +75,7 @@ body {
 	background: white;
 	font-family: monospace;
 	padding: 20px;
-	box-shadow: 4px 4px 5px black;
+	box-shadow: 2px 2px 5px black;
 	animation-name: fadeIn;
 	animation-duration: 4s;
 	word-wrap: break-word;
@@ -91,9 +91,7 @@ body {
 .box:hover {
 	overflow: auto;
 	border-color: rgb(0, 80, 140);
-	color: white;
-	background: blue;
-	border-bottom-right-radius: 0px;
+	background: rgb(240,240,240);
 }
 
 .timestamp {
