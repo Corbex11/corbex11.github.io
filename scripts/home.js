@@ -1,5 +1,5 @@
 /* callum fisher - corbex11@gmail.com
-last updated: 4/7/21 */
+last updated: 3/11/21 */
 
 var days = [
     "Sunday",
@@ -41,27 +41,13 @@ function suffix_of(i) {
     return i + "th";
 }
 
-/* function toggleinfoboard() {
-    var infoboard = document.getElementById("infoboard")
-    if (window.getComputedStyle(infoboard).display == "none") {
-        infoboard.style.display = "block"
-    } else {
-         infoboard.style.animation = "fadeOut 0.5s linear infinite"
-         setTimeout(function() {
-            infoboard.style.display = "none"
-            infoboard.style.animation = ""
-        }, 400)
-    }
-} */
-
-/* window.onload = function() {
+window.onload = function() {
     var date = new Date();
     var hour = date.getHours();
     var infoboard = document.getElementById("infoboard");
     infoboard.innerHTML = `<marquee width="100%" direction="left">(i) Information Board (i)</a></marquee><hr><li>${days[date.getDay()]}, ${suffix_of(date.getDate())} of ${months[date.getMonth()]} ${date.getFullYear()}</li>`;
-    infoboard.innerHTML += `<li>Good ${hour >= 12 ? hour >= 17 && hour < 20 ? "evening" : "afternoon" : "morning"}!</li>`;
+    infoboard.innerHTML += `<li>No additional notices! - Good ${hour >= 12 ? hour >= 17 && hour < 20 ? "evening" : "afternoon" : "morning"}!</li>`;
     eventsOnDay(date.getMonth(), date.getDate()).forEach((msg) => {
         infoboard.innerHTML += `<li>${msg}</li>`;
     });
-    infoboard.innerHTML += "<li>test</li>"
-} */
+}

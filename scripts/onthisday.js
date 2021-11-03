@@ -1,10 +1,15 @@
 /* callum fisher - corbex11@gmail.com
-last updated: 4/7/21 */
+last updated: 3/11/21 */
 
-var events = [
+var events = [ // to-do: implement "start" and "end" dates for events to avoid repetition
+    {month:12,date:24,msg:"Merry Christmas!"},
     {month:12,date:25,msg:"Merry Christmas!"},
+    {month:12,date:26,msg:"Merry Christmas!"},
+    {month:10,date:30,msg:"Happy Halloween!"},
     {month:10,date:31,msg:"Happy Halloween!"},
-    {month:11,date:11,msg:"Remembrance Day"}
+    {month:11,date:1,msg:"Happy Halloween!"},
+    {month:11,date:11,msg:"Remembrance Day"},
+
 ]
 
 function eventsOnDay(month, date) {

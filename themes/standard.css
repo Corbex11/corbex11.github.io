@@ -94,10 +94,21 @@ body {
 	background: rgb(240,240,240);
 }
 
-.timestamp {
-	font-size: 10px;
-	color: rgb(100,100,100);
-	text-shadow: 1px 1px 0px rgb(0,0,0)
+.infoboard {
+	background: white;
+	font-family: monospace;
+	padding: 20px;
+	box-shadow: 3px 3px 2px black;
+	animation-name: fadeIn;
+	animation-duration: 4s;
+	word-wrap: break-word;
+	overflow: hidden;
+	min-width: 400px;
+	max-width: 400px;
+	min-height: 200px;
+	max-height: 400;
+	flex: 0 1 auto;
+	align-self: center;
 }
 
 .unselectable {
