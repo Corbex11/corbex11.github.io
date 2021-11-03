@@ -11,8 +11,8 @@ body {
 	width: 100%;
 	padding-left: 10%;
 	padding-right: 10%;
-	padding-top: 2%;
-	padding-bottom: 2%;
+	padding-top: 0.2%;
+	padding-bottom: 0.2%;
     box-sizing: border-box;
 	display: inline-block;
 }
@@ -75,7 +75,7 @@ body {
 	background: white;
 	font-family: monospace;
 	padding: 20px;
-	box-shadow: 2px 2px 5px black;
+	box-shadow: 3px 3px 2px black;
 	animation-name: fadeIn;
 	animation-duration: 4s;
 	word-wrap: break-word;
@@ -136,7 +136,7 @@ img {
 .navbar {
 	background: linear-gradient(to right, rgb(0,100,160), rgb(0,50,90));
 	overflow: hidden;
-	padding: 10px;
+	padding: 0.2%;
 	-moz-user-select: -moz-none;
 	-khtml-user-select: none;
 	-webkit-user-select: none;
