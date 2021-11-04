@@ -8,6 +8,7 @@ var events = [ // to-do: implement "start" and "end" dates for events to avoid r
     {month:10,date:30,msg:"Happy Halloween!"},
     {month:10,date:31,msg:"Happy Halloween!"},
     {month:11,date:1,msg:"Happy Halloween!"},
+    {month:11,date:2,msg:"Bonfire night!"},
     {month:11,date:11,msg:"Remembrance Day"},
 
 ]

@@ -81,7 +81,7 @@ body {
 	border-bottom-left-radius: 10px;
 	box-shadow: 3px 3px 2px black;
 	animation-name: fadeIn;
-	animation-duration: 4s;
+	animation-duration: 1s;
 	word-wrap: break-word;
 	overflow: hidden;
 	min-width: 200px;
@@ -98,6 +98,25 @@ body {
 	background: rgb(240,240,240);
 }
 
+.widebox {
+	background: white;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	font-family: monospace;
+	padding: 20px;
+	box-shadow: 3px 3px 2px black;
+	animation-name: fadeIn;
+	animation-duration: 1s;
+	word-wrap: break-word;
+	overflow: hidden;
+	min-width: 400px;
+	max-width: 400px;
+	min-height: 200px;
+	max-height: 400px;
+}
+
 .infoboard {
 	background: linear-gradient(to right, rgb(0,100,160), rgb(0,50,90));
 	color: white;
@@ -109,13 +128,13 @@ body {
 	padding: 20px;
 	box-shadow: 3px 3px 2px black;
 	animation-name: fadeIn;
-	animation-duration: 4s;
+	animation-duration: 1s;
 	word-wrap: break-word;
 	overflow: hidden;
 	min-width: 400px;
 	max-width: 400px;
 	min-height: 200px;
-	max-height: 400;
+	max-height: 400px;
 }
 
 .unselectable {
@@ -133,7 +152,7 @@ img {
 .navbar {
 	background: linear-gradient(to right, rgb(0,100,160), rgb(0,50,90));
 	overflow: hidden;
-	padding: 0.2%;
+	padding: 0.1%;
 	-moz-user-select: -moz-none;
 	-khtml-user-select: none;
 	-webkit-user-select: none;
