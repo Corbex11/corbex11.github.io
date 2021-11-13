@@ -8,6 +8,10 @@ body {
 .separator {
 	background: white;
 	color: gray;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
 	width: 100%;
 	padding-left: 10%;
 	padding-right: 10%;
@@ -45,6 +49,10 @@ body {
 	background: rgb(220,220,220);
 	color: black;
 	font-size: 12pt;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
 	width: 100%;
 	padding-left: 10%;
 	padding-right: 10%;
@@ -63,6 +71,10 @@ body {
 	background: rgb(220,220,220);
 	color: black;
 	font-size: 12pt;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
 	width: 100%;
 	padding-left: 10%;
 	padding-right: 10%;
@@ -74,20 +86,18 @@ body {
 .box {
 	background: white;
 	font-family: monospace;
-	padding: 20px;
 	border-top-right-radius: 10px;
 	border-top-left-radius: 10px;
 	border-bottom-right-radius: 10px;
 	border-bottom-left-radius: 10px;
+	padding: 20px;
 	box-shadow: 3px 3px 2px black;
 	animation-name: fadeIn;
 	animation-duration: 1s;
 	word-wrap: break-word;
 	overflow: hidden;
-	min-width: 200px;
-	max-width: 200px;
-	min-height: 200px;
-	max-height: 400;
+	min-width: 15%;
+	max-width: 15%;
 	flex: 0 1 auto;
 	align-self: center;
 }
@@ -111,30 +121,6 @@ body {
 	animation-duration: 1s;
 	word-wrap: break-word;
 	overflow: hidden;
-	min-width: 400px;
-	max-width: 400px;
-	min-height: 200px;
-	max-height: 400px;
-}
-
-.infoboard {
-	background: linear-gradient(to right, rgb(0,100,160), rgb(0,50,90));
-	color: white;
-	border-top-right-radius: 10px;
-	border-top-left-radius: 10px;
-	border-bottom-right-radius: 10px;
-	border-bottom-left-radius: 10px;
-	font-family: monospace;
-	padding: 20px;
-	box-shadow: 3px 3px 2px black;
-	animation-name: fadeIn;
-	animation-duration: 1s;
-	word-wrap: break-word;
-	overflow: hidden;
-	min-width: 400px;
-	max-width: 400px;
-	min-height: 200px;
-	max-height: 400px;
 }
 
 .unselectable {
