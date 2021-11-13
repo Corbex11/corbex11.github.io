@@ -96,7 +96,6 @@ body {
 	animation-duration: 1s;
 	word-wrap: break-word;
 	overflow: hidden;
-	min-width: 15%;
 	max-width: 15%;
 	flex: 0 1 auto;
 	align-self: center;
