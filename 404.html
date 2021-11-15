@@ -1,44 +1,32 @@
 <!-- callum fisher - corbex11@gmail.com
-last updated: 3/11/21 -->
+last updated: 15/11/21 -->
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="css/standard.css"/>
-	<link rel="shortcut icon" href="favicon.ico"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="themes/standard.css"/>
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Hi. This is my website and it looks like you've just found it. I'll document my work and latest projects here. You'll find articles, photography, videos and more.">
 	<title>Callum Fisher - Page Not Found</title>
 </head>
 <body>
-	<center>
-		<!-- <div style="position:fixed;bottom:20px;color:rgb(255,255,255)"><br><br><br><br><br><br><br><br><br><br>Icon made by <a href="https://www.flaticon.com/authors/phatplus" title="phatplus">phatplus</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> and is licensed with <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> -->
-		<font face="verdana" size="10" id="txt" style="color:rgb(0,200,200);text-shadow:2px 2px 1px rgb(40,0,0)">Not Found</font>
-		<font face="verdana" id="text" style="color:rgb(0,0,0)">
-			<br>
-			<br>
-			<image src="/media/404.png"></image>
-			<br>
-			<br>
-			<b>Sorry, but the page you're looking for was not found on this server.<br>It may have been moved or deleted, or you may have typed the page name incorrectly.<br>
-			<br>
-			<br>
-			Heading home...</b><br>
-			<a id="num">(Waiting for JavaScript)</a>
-		</font>
-		<script>
-			window.onload = function () {
-				var i = 10;
-				document.getElementById("num").innerHTML = 10;
-				var int = setInterval(function() {
-					i--;
-					if (i >= 0) {
-						document.getElementById("num").innerHTML = i;
-					} else {
-						document.getElementById("num").innerHTML = "(you should've been redirected to the home page by now)";
-					}
-					if (i == 0) location.href = "/index.html";				
-				}, 1000);
-			}
-		</script>
-	</center>
+	<div class="navbar">
+		<a href="./index.html">Home</a>
+	</div>
+	<div class="content">
+		<div class="separator">
+			<center>
+				<font size="10">Not Found</font><br>
+				<br>
+				<img src="./media/404.png"></img><br>
+				<br>
+				<p><b>Sorry, but the page you're looking for was not found on this server.<br>
+				It may have been moved or deleted, or you may have typed the page name incorrectly.</b></p>
+			</center>
+			<div class="separator">
+				<p>Icon made by <a href="https://www.flaticon.com/authors/phatplus" title="phatplus">phatplus</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> and is licensed with <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></p>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
