@@ -1,5 +1,5 @@
 body {
-	background: rgb(200,200,200);
+	background: black;
 	font-family: Arial, Helvetica, sans-serif;
 	margin: 0;
 	padding-left: 100px;
@@ -22,8 +22,8 @@ body {
 
 
 .separator {
-	background: white;
-	color: gray;
+	background: rgb(20,20,20);
+	color: white;
 	border-top-right-radius: 10px;
 	border-top-left-radius: 10px;
 	border-bottom-right-radius: 10px;
@@ -62,8 +62,8 @@ body {
 }
 
 .content {
-	background: rgb(220,220,220);
-	color: black;
+	background: rgb(10,10,10);
+	color: white;
 	font-size: 12pt;
 	border-top-right-radius: 10px;
 	border-top-left-radius: 10px;
@@ -79,7 +79,8 @@ body {
 }
 
 .box {
-	background: white;
+	background: rgb(20,20,20);
+	color: white;
 	font-family: monospace;
 	border-top-right-radius: 10px;
 	border-top-left-radius: 10px;
@@ -94,7 +95,7 @@ body {
 }
 
 .box:hover {
-	background: rgb(240,240,240);
+	background: rgb(15,15,15);
 }
 
 .unselectable {
@@ -183,4 +184,21 @@ img {
 }
 ::-webkit-scrollbar-thumb:hover {
 	background: rgb(0,200,260)
+}
+
+ /* unvisited link */
+ a:link {
+	color: #095484;
+}
+/* visited link */
+a:visited {
+	color: #095484;
+}
+/* mouse over link */
+a:hover {
+	color: rgb(0,50,90)
+}
+/* selected link */
+a:active {
+	color: #095484;
 }
