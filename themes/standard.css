@@ -130,10 +130,10 @@ img {
 .navbar a {
 	float: left;
 	background-color:rgb(0,200,250);
-	border-top-right-radius: 10px;
-	border-top-left-radius: 10px;
-	border-bottom-right-radius: 10px;
-	border-bottom-left-radius: 10px;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
 	color: rgb(255,255,255);
 	text-align: center;
 	padding-left: 1%;
