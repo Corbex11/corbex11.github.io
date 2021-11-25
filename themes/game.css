@@ -1,18 +1,38 @@
 body {
-	background: rgb(255,255,255);
+	background: rgb(0,0,0);
 	font-family: Arial, Helvetica, sans-serif;
 	margin: 0;
-	padding: 0;
+	padding-left: 100px;
+	padding-right: 100px;
 }
 
+@media only screen and (max-width: 950px) {
+	body {
+	   padding-left: 10%;
+	   padding-right: 10%;
+	}
+ }
+ 
+ @media only screen and (max-width: 600px) {
+	body {
+	   padding-left: 0;
+	   padding-right: 0;
+	}
+ }
+
+
 .separator {
-	background: white;
-	color: gray;
+	background: rgb(20,20,20);
+	color: white;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
 	width: 100%;
 	padding-left: 10%;
 	padding-right: 10%;
-	padding-top: 5%;
-	padding-bottom: 5%;
+	padding-top: 0.2%;
+	padding-bottom: 0.2%;
     box-sizing: border-box;
 	display: inline-block;
 }
@@ -42,65 +62,40 @@ body {
 }
 
 .content {
-	background: rgb(220,220,220);
-	color: black;
-	font-size: 16pt;
+	background: rgb(10,10,10);
+	color: white;
+	font-size: 12pt;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
 	width: 100%;
 	padding-left: 10%;
 	padding-right: 10%;
-	padding-top: 5%;
+	padding-top: 2%;
 	padding-bottom: 5%;
     box-sizing: border-box;
-	display: inline-flex;
-	flex-flow: row wrap;
-	justify-content: space-around;
-	align-content: center;
-	align-items: center;
-	gap: 12px;
-}
-
-.content2 {
-	background: rgb(220,220,220);
-	color: black;
-	font-size: 16pt;
-	width: 100%;
-	padding-left: 10%;
-	padding-right: 10%;
-	padding-top: 5%;
-	padding-bottom: 5%;
-    box-sizing: border-box;
+	float: left;
 }
 
 .box {
-	background: white;
+	background: rgb(20,20,20);
+	color: white;
 	font-family: monospace;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
 	padding: 20px;
-	box-shadow: 4px 4px 5px black;
-	border-radius: 10px;
+	box-shadow: 2px 2px 4px black;
 	animation-name: fadeIn;
-	animation-duration: 4s;
+	animation-duration: 1s;
 	word-wrap: break-word;
 	overflow: hidden;
-	min-width: 200px;
-	max-width: 200px;
-	min-height: 200px;
-	max-height: 400;
-	flex: 0 1 auto;
-	align-self: center;
 }
 
 .box:hover {
-	overflow: auto;
-	border-color: rgb(0, 80, 140);
-	color: white;
-	background: blue;
-	border-bottom-right-radius: 0px;
-}
-
-.timestamp {
-	font-size: 10px;
-	color: rgb(100,100,100);
-	text-shadow: 1px 1px 0px rgb(0,0,0)
+	background: rgb(15,15,15);
 }
 
 .unselectable {
@@ -111,35 +106,21 @@ body {
 	user-select: none;
 }
 
-.options {
-	padding: 5%;
-	border-style: solid;
-	border-width: 2px;
-	border-top-left-radius: 60px;
-	border-color: rgb(0,0,255);
-	background-color: rgb(2,0,20);
-	font-size: 40px;
-	color: rgb(255,255,255);
-	text-shadow: 1px 1px 0px rgb(0,0,0);
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	animation-name: enterSlideDown;
-	animation-duration: 2s;
-	display: none;
-	overflow-y: scroll;
-	max-height: 50%;
-}
-
 img {
 	z-index:-1;
 }
 
 .navbar {
-	background: linear-gradient(to right, rgb(0,100,160), rgb(0,50,90));
+	background: linear-gradient(to right, rgb(100,0,0), rgb(0,0,100));
 	overflow: hidden;
-	padding: 10px;
+	padding-left: 1%;
+	padding-right: 0.1%;
+	padding-bottom: 1%;
+	padding-top: 1%;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
 	-moz-user-select: -moz-none;
 	-khtml-user-select: none;
 	-webkit-user-select: none;
@@ -147,12 +128,20 @@ img {
 	user-select: none;
 }
 .navbar a {
-	float: right;
-	color: rgb(255,255,255);
+	float: left;
+	background-color:white;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	color: black;
 	text-align: center;
-	padding: 14px;
+	padding-left: 1%;
+	padding-right: 1%;
 	text-decoration: none;
 	font-family: verdana;
+	animation-name: fadeIn;
+	animation-duration: 4s;
 }
 .navbar a:hover {
 	background-color: rgb(0,200,250);
@@ -197,4 +186,21 @@ img {
 }
 ::-webkit-scrollbar-thumb:hover {
 	background: rgb(0,200,260)
+}
+
+ /* unvisited link */
+ a:link {
+	color: #095484;
+}
+/* visited link */
+a:visited {
+	color: #095484;
+}
+/* mouse over link */
+a:hover {
+	color: rgb(0,50,90)
+}
+/* selected link */
+a:active {
+	color: #095484;
 }
