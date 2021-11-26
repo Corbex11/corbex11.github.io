@@ -1,5 +1,5 @@
 /* callum fisher - corbex11@gmail.com
-last updated 14/11/2021 */
+last updated 25/11/2021 */
 
 function hideElement (element) {
     var element = document.getElementById(element);
