@@ -2,24 +2,8 @@ body {
 	background: black;
 	font-family: Arial, Helvetica, sans-serif;
 	margin: 0;
-	padding-left: 100px;
-	padding-right: 100px;
+	padding: 0;
 }
-
-@media only screen and (max-width: 950px) {
-	body {
-	   padding-left: 10%;
-	   padding-right: 10%;
-	}
- }
- 
- @media only screen and (max-width: 600px) {
-	body {
-	   padding-left: 0;
-	   padding-right: 0;
-	}
- }
-
 
 .separator {
 	background: rgb(20,20,20);
@@ -111,38 +95,36 @@ img {
 }
 
 .navbar {
-	background: linear-gradient(to right, rgb(0,100,160), rgb(0,50,90));
+	background: rgb(20,20,20);
+	color: white;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
 	overflow: hidden;
 	padding-left: 1%;
-	padding-right: 0.1%;
-	padding-bottom: 1%;
-	padding-top: 1%;
+	padding-right: 1%;
+	padding-bottom: 0.4%;
+	padding-top: 0.4%;
+}
+.navbar a {
+	float: left;
+	color: white;
+	text-align: center;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-decoration: none;
+	font-family: verdana;
 	border-top-right-radius: 10px;
 	border-top-left-radius: 10px;
 	border-bottom-right-radius: 10px;
 	border-bottom-left-radius: 10px;
-	-moz-user-select: -moz-none;
-	-khtml-user-select: none;
-	-webkit-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
 }
-.navbar a {
-	float: left;
-	background-color:rgb(0,200,250);
-	border-top-right-radius: 5px;
-	border-top-left-radius: 5px;
-	border-bottom-right-radius: 5px;
-	border-bottom-left-radius: 5px;
-	color: rgb(255,255,255);
-	text-align: center;
-	padding-left: 1%;
-	padding-right: 1%;
-	text-decoration: none;
-	font-family: verdana;
+.navbar a.active {
+	background-color: rgb(0, 50, 90);
 }
 .navbar a:hover {
-	background-color: rgb(0,200,250);
+	background-color: rgb(0,150,200);
 }
 
 /* Animations */
@@ -187,18 +169,10 @@ img {
 }
 
  /* unvisited link */
- a:link {
-	color: #095484;
+a:link {
+	color: white;
 }
 /* visited link */
 a:visited {
-	color: #095484;
-}
-/* mouse over link */
-a:hover {
-	color: rgb(0,50,90)
-}
-/* selected link */
-a:active {
-	color: #095484;
+	color: white;
 }

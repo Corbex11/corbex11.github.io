@@ -42,6 +42,7 @@ function fadeInBackground(R, G, B) {
 function hideAllButtons () {
     for (var i = 0; i >= 8; i++) {
         hideElement("button" + i);
+        document.getElementById("button" + i).onclick = undefined;
     }
 }
 
@@ -49,30 +50,35 @@ function rollDice() {
     hideAllButtons();
     showElement("button1");
     fadeInBackground(10,0,0);
-    document.getElementById("button1").innerHTML = "<marquee>Points: 0</marquee>";
+    document.getElementById("logo").src="media/dice.gif";
+    document.getElementById("button1").innerHTML = "Back";
     document.getElementById("button1").style.float = "right";
     showElement("button2");
     document.getElementById("box1").innerHTML = "<h1>Will you place a bet?</h1>";
     document.getElementById("button2").innerHTML = "Yes.";
     showElement("button3");
+    let next = false;
     document.getElementById("button3").innerHTML = "No.";
+    async function waitForRes () {
+        while (next === false) await timeout(50); // pause script but avoid browser to freeze ;)
+        const userInputVal = next;
+        next = false; // reset var
+        return userInputVal;
+    }
     document.getElementById("button2").onclick = function () {
-        next(true);
+        next = true;
     }
     document.getElementById("button3").onclick = function () {
-        next(false);
+        next = true;
     }
-    var next = function () {
-        document.getElementById("box1").innerHTML = "<h1>How much?</h1>";
-document.getElementById("button3").innerHTML = `<form action="/action_page.php">
-<label for="fname">First name:</label>
-<input type="text" id="fname" name="fname"><br><br>
-<label for="lname">Last name:</label>
-<input type="text" id="lname" name="lname"><br><br>
-<input type="submit" value="Submit">
-</form>`;
-        var prompt = alert("How much?");
-
+    async function next (bet) {
+        if (bet) {
+            hideElement("button3");
+            showElement("button2");
+            document.getElementById("button2").onclick = undefined;
+            document.getElementById("box1").innerHTML = "<h1>How much will you bet?</h1>";
+            document.getElementById("button2").innerHTML = `<form><label for="betAmount">Amount: </label><input type="text" id="betAmount" name="betAmount"></form>`;
+        }
     }
 }
 
