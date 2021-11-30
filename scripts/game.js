@@ -180,9 +180,10 @@ function rollDice() {
 }
 
 function showMenu() {
-    audio.src = "media/Kevin MacLeod - Tranquility.mp3";
+    /* audio.src = "media/Kevin MacLeod - Tranquility.mp3";
     audio.play();
-    audio.volume = 0.1
+    audio.volume = 0.1; */
+    MIDIjs.play('media/music.mid');
     showElement("navbar");
     hideElement("box1");
     showElement("credits");
@@ -194,5 +195,6 @@ function showMenu() {
 }
 
 window.onload = function() {
+    MIDIjs.initAll();
     showMenu();
 }
