@@ -195,6 +195,5 @@ function showMenu() {
 }
 
 window.onload = function() {
-    MIDIjs.initAll();
     showMenu();
 }
