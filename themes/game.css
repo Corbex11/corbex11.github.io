@@ -23,6 +23,9 @@ body {
 
 .separator {
 	background: rgb(20,20,20);
+	border-color: gray;
+	border-style: solid;
+	border-width: 1px;
 	color: white;
 	width: 100%;
 	padding-left: 10%;
@@ -80,6 +83,9 @@ body {
 
 .box {
 	background: rgb(20,20,20);
+	border-color: gray;
+	border-style: solid;
+	border-width: 1px;
 	color: white;
 	font-family: monospace;
 	padding: 20px;
@@ -111,7 +117,7 @@ img {
 }
 
 .navbar {
-	background: linear-gradient(to right, rgb(100,0,0), rgb(0,0,100));
+	background: rgb(20,20,20);
 	overflow: hidden;
 	padding-left: 0.1%;
 	padding-right: 0.1%;
@@ -129,11 +135,11 @@ img {
 }
 .navbar a {
 	float: left;
-	background-color:white;
-	border-color: black;
+	background: rgb(20,20,20);
+	color: white;
+	border-color: gray;
 	border-style: solid;
-	border-width: 2px;
-	color: black;
+	border-width: 1px;
 	text-align: center;
 	padding-left: 20px;
 	padding-right: 20px;

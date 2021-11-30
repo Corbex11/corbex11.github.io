@@ -1,5 +1,5 @@
 /* callum fisher - corbex11@gmail.com
-last updated 27/11/2021 */
+last updated 30/11/2021 */
 
 var buttons = [];
 var data = {};
@@ -12,7 +12,7 @@ function hideElement (element) {
         setTimeout(() => {
             element.style.display = "none";
             element.style.animation = "";
-        }, 500);
+        }, 400);
     }
 }
 
@@ -20,6 +20,10 @@ function showElement (element) {
     var element = document.getElementById(element);
     if (window.getComputedStyle(element).display == "none") {
         element.style.display = "block";
+        element.style.animation = "fadeIn 0.5s linear infinite";
+        setTimeout(() => {
+            element.style.animation = "";
+        }, 400);
     }
 }
 
@@ -62,9 +66,10 @@ function rando (r) {
 
 function saveData () {
     hideAllButtons();
-    addQuitButton();
+    fadeInBackground(0,100,150);
     newButton("Record my Current Progress");
     newButton("Continue from a Previous Save");
+    addQuitButton();
     document.getElementById("logo").src = "media/save.png";
     showElement("box1");
     document.getElementById("box1").innerHTML = "<h1>Hello.</h1><h2>Welcome to the Save Data menu.</h2><p>You can record all of your progress across the game here, and pick up from where you left off whenever you want to.</p>";
@@ -97,6 +102,8 @@ function addQuitButton () {
     newButton("Go Back to Lobby", function() {
         showMenu();
     }).then(function(id) {
+        buttons[id].style.backgroundImage = "linear-gradient(to right, rgb(100,0,0), rgb(0,0,100))";
+        buttons[id].style.color = "white";
         buttons[id].style.float = "right";
     });
 }
@@ -109,7 +116,7 @@ function rollDice() {
     showElement("box1");
     document.getElementById("box1").innerHTML = "Clark: \"Let's get started, then! Will you be placing a bet on this roll?\"";
     hideAllButtons();
-    fadeInBackground(0,0,10);
+    fadeInBackground(0,0,40);
     document.getElementById("logo").src = "media/dice.png";
     var confirmBetAmount = function () {
         document.getElementById("box1").innerHTML = "Clark: \"How much are you going to bet?\"";
@@ -129,7 +136,7 @@ function rollDice() {
             roll();
         });
     }
-    var no = function () {
+    var notBetting = function () {
         hideElement("navbar");
         document.getElementById("box1").innerHTML = "Clark: \"Okay.\"";
         if (Math.random() > 0.8) { // We don't always want a drumroll, it'll get annoying hearing it every time, so let's give it a 20% chance of happening instead.
@@ -138,32 +145,28 @@ function rollDice() {
         } else {
             document.getElementById("logo").src = "media/dice.gif";
         }
+        fadeInBackground(0,0,0);
         setTimeout(() => { // Suspense!
             roll();
         }, 2000);
     }
     var roll = function () {
+        fadeInBackground(0,0,40);
         document.getElementById("logo").src = "media/rolldice.png";
         new Audio("media/rollDice.mp3").play();
         var losses = ["Unlucky!", "Unfortunate!", "Nope.", "What if you placed down a higher bet?", "Not quite.", "Not quite!", "Nah.", "Nope!", "No!", "Not quite!", "Tough luck.", "Maybe next time.", "Typical.", "Typical!", "How unlucky!", "Most unfortunate!", "Oh!"];
         document.getElementById("box1").innerHTML = "Clark: \"" + rando(losses) + " You rolled a...\"<h1>"+(Math.floor(Math.random()*6)+1)+"</h1>Clark: \"Would you like to roll again?\"";
         showElement("navbar");
         hideAllButtons();
-        addQuitButton();
-        newButton("Yes.", rollDice);
+        newButton("Yes.", notBetting);
+        newButton("I'll make a bet.", confirmBetAmount);
+        newButton("No, thanks.", showMenu).then(function(id) {
+            buttons[id].style.float = "right";
+        });
     }
     newButton("Yes.", confirmBetAmount);
-    newButton("No, thanks.", no);
-    newButton("I've changed my mind.", function() {
-        fadeInBackground(0,0,0);
-        document.getElementById("box1").innerHTML = "Clark: \"Okay!\"";
-        hideElement("navbar");
-        setTimeout(() => {
-            showMenu();
-        }, 6000);
-    }).then(function(id) {
-        buttons[id].style.float = "right";
-    });
+    newButton("No, thanks.", notBetting);
+    addQuitButton();
     var next = function(bet) {
         hideAllButtons();
         if (bet) {
