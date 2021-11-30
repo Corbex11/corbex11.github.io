@@ -109,9 +109,6 @@ function addQuitButton () {
 }
 
 function rollDice() {
-    audio.src = "media/Kevin MacLeod - Rollin at 5 - 210 - full.mp3";
-    audio.play();
-    audio.volume = 1;
     hideElement("credits");
     showElement("box1");
     document.getElementById("box1").innerHTML = "Clark: \"Let's get started, then! Will you be placing a bet on this roll?\"";
@@ -180,9 +177,6 @@ function rollDice() {
 }
 
 function showMenu() {
-    /* audio.src = "media/Kevin MacLeod - Tranquility.mp3";
-    audio.play();
-    audio.volume = 0.1; */
     MIDIjs.play('media/music.mid');
     showElement("navbar");
     hideElement("box1");
