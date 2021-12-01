@@ -66,13 +66,14 @@ function rando (r) {
 
 function saveData () {
     hideAllButtons();
-    fadeInBackground(0,100,150);
+    hideElement("credits");
+    fadeInBackground(0,0,100)
     newButton("Record my Current Progress");
     newButton("Continue from a Previous Save");
     addQuitButton();
     document.getElementById("logo").src = "media/save.png";
     showElement("box1");
-    document.getElementById("box1").innerHTML = "<h1>Hello.</h1><h2>Welcome to the Save Data menu.</h2><p>You can record all of your progress across the game here, and pick up from where you left off whenever you want to.</p>";
+    document.getElementById("box1").innerHTML = "<h2>Welcome to the Save Data menu.</h2><p>You can record all of your progress across the game here, and pick up from where you left off whenever you want to.</p>";
 }
 
 function newButton (label, onclick) { // Thanks: https://sebhastian.com/javascript-create-button/

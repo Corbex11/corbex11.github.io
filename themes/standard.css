@@ -62,6 +62,32 @@ body {
 	float: left;
 }
 
+.gallery {
+	border-style: inset;
+	border-color: black white white;
+	border-width: 4px;
+	margin: 5px;
+	border: 1px solid #ccc;
+	float: left;
+	width: 180px;
+	flex: 0 1 auto;
+	align-self: center;
+}
+  
+.gallery:hover {
+	border: 1px solid #777;
+}
+  
+.gallery img {
+	border-style: inset;
+	border-color: black white white;
+	border-width: 4px;
+	box-sizing: border-box;
+	width: 100%;
+	height: auto;
+}
+  
+
 .box {
 	background: rgb(20,20,20);
 	color: white;
