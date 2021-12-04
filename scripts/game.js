@@ -173,13 +173,12 @@ function rollDice() {
                     takeItem("coin", betAmount);
                 }
             } */
-            betAmount = 0; // reset for "try again" option
         }
         //document.getElementById("box1").innerHTML = "Clark: \"" + rando(losses) + " You rolled a...\"<h1>"+(Math.floor(Math.random()*6)+1)+"</h1>Clark: \"Would you like to roll again?\"";
         showElement("navbar");
         hideAllButtons();
         newButton("Try again.", rollBuildUp).then(function(id) {
-            if (win) buttons[id].innerHTML = "Roll again.";
+            if (win) buttons[id].innerHTML = "Roll again." += betAmount > 0 ? " (with bet)" : "";
         });
         newButton("Make a bet.", confirmBetAmount);
         addQuitButton();
