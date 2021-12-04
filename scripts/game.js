@@ -112,12 +112,13 @@ function addQuitButton () {
 function rollDice() {
     hideElement("credits");
     showElement("box1");
-    document.getElementById("box1").innerHTML = "Clark: \"Let's get started, then! Will you be placing a bet on this roll?\"";
+    document.getElementById("box1").innerHTML = "Let's get started, then! Will you be placing a bet on this roll?";
     hideAllButtons();
     fadeInBackground(0,0,40);
     document.getElementById("logo").src = "media/dice.png";
+    var betAmount = 0;
     var confirmBetAmount = function () {
-        document.getElementById("box1").innerHTML = "Clark: \"How much are you going to bet?\"";
+        document.getElementById("box1").innerHTML = "How much are you going to bet?";
         hideAllButtons();
         newButton("I've changed my mind.", function() {
             rollDice();
@@ -127,7 +128,6 @@ function rollDice() {
         newButton().then(function(id) {
             buttons[id].innerHTML = `<form><label for="betAmount"></label><input type="number" autocomplete="off" min="1" placeholder="Enter bet amount" id="betAmount" name="betAmount"></form>`;
         });
-        var betAmount;
         newButton("Confirm Bet!", function() {
             hideElement("navbar");
             betAmount = document.getElementById("betAmount").value;
@@ -136,45 +136,53 @@ function rollDice() {
     }
     var notBetting = function () {
         hideElement("navbar");
-        document.getElementById("box1").innerHTML = "Clark: \"Okay.\"";
+        document.getElementById("box1").innerHTML = "Okay. Let's roll the dice...";
         if (Math.random() > 0.8) { // We don't always want a drumroll, it'll get annoying hearing it every time, so let's give it a 20% chance of happening instead.
             document.getElementById("logo").src = "media/drumroll.gif";
             new Audio("media/drumroll.mp3").play();
         } else {
             document.getElementById("logo").src = "media/dice.gif";
         }
-        fadeInBackground(0,0,0);
         setTimeout(() => { // Suspense!
             roll();
         }, 2000);
     }
     var roll = function () {
-        fadeInBackground(0,0,40);
         document.getElementById("logo").src = "media/rolldice.png";
         new Audio("media/rollDice.mp3").play();
-        var losses = ["Unlucky!", "Unfortunate!", "Nope.", "What if you placed down a higher bet?", "Not quite.", "Not quite!", "Nah.", "Nope!", "No!", "Not quite!", "Tough luck.", "Maybe next time.", "Typical.", "Typical!", "How unlucky!", "Most unfortunate!", "Oh!"];
-        document.getElementById("box1").innerHTML = "Clark: \"" + rando(losses) + " You rolled a...\"<h1>"+(Math.floor(Math.random()*6)+1)+"</h1>Clark: \"Would you like to roll again?\"";
+        var interrupt = Math.random() > 0.8;
+        var res = Math.floor(Math.random()*6) + 1;
+		var win = res == 6;
+        if (interrupt && betAmount == 0) {
+            var interruptions = ["What happened to the die?", "Did it fall off of the table?", "Please, stop throwing the die onto the floor", "Actually, your concentration was thrown off. Let's try again later.", "Oh no! A die fell off of the table! Where did it go...?", "Despite your best efforts, you managed to drop the die.. Where did it go?", "Where did the die go?"]
+            document.getElementById("box1").innerHTML = rando(interruptions);
+        } else {
+            var wins = ["Lucky! You're a winner!", "It's a winner!", "Nice.", "Great!", "Finally!", "Yes!", "Brilliant!", "Perfect roll!", "Perfect!", "That's great!", "Unbelievable!"];
+		    var losses = ["Unlucky!", "Unfortunate!", "Nope.", "What if you placed down a higher bet?", "Not quite.", "Not quite!", "Nah.", "Nope!", "No!", "Not quite!", "Tough luck.", "Maybe next time.", "Typical.", "Typical!", "How unlucky!", "Most unfortunate!", "Oh!"];
+			var message=`${res == 6 ? rando(wins):rando(losses)} You rolled ${res>10&&res!==12?"an":"a"} ${res} out of 6${betAmount==0?"!":""} `
+			if (betAmount !== 0) message += win ? " and won a bet of C$" + betAmount + "! (not really, bets haven't been enabled yet)":" and lost a bet of C$" + betAmount + "! (not really, bets haven't been enabled yet)";
+			document.getElementById("box1").innerHTML = message;
+            if (res == 6) document.getElementById("logo").src = "media/rolldice.gif";
+            /* if (betAmount !== 0) {
+                if (win) {
+                    giveItem("coin", betAmount);
+                } else {
+                    takeItem("coin", betAmount);
+                }
+            } */
+        }
+        //document.getElementById("box1").innerHTML = "Clark: \"" + rando(losses) + " You rolled a...\"<h1>"+(Math.floor(Math.random()*6)+1)+"</h1>Clark: \"Would you like to roll again?\"";
         showElement("navbar");
         hideAllButtons();
-        newButton("Yes.", notBetting);
-        newButton("I'll make a bet.", confirmBetAmount);
-        newButton("No, thanks.", showMenu).then(function(id) {
-            buttons[id].style.float = "right";
+        newButton("Try again.", notBetting).then(function(id) {
+            if (win) buttons[id].innerHTML = "Roll again.";
         });
+        newButton("Make a bet.", confirmBetAmount);
+        addQuitButton();
     }
     newButton("Yes.", confirmBetAmount);
     newButton("No, thanks.", notBetting);
     addQuitButton();
-    var next = function(bet) {
-        hideAllButtons();
-        if (bet) {
-            showElement("button2");
-            document.getElementById("button2").onclick = undefined;
-            document.getElementById("box1").innerHTML = "<h1>How much will you bet on this roll?</h1>";
-            document.getElementById("button2")
-            next()
-        }
-    }
 }
 
 function showMenu() {
