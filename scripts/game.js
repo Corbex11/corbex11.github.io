@@ -152,14 +152,14 @@ function rollDice() {
     }
     var roll = function () {
         document.getElementById("logo").src = "media/rolldice.png";
-        new Audio("media/rollDice.mp3").play();
         var interrupt = Math.random() > 0.8;
         var res = Math.floor(Math.random()*6) + 1;
 		var win = res == 6;
         if (interrupt && betAmount == 0) {
-            var interruptions = ["Where are the dice?", "Did it fall off of the table?", "Please, stop throwing the die onto the floor.", "Actually, your concentration was thrown off. Let's try again later.", "Oh no! A die fell off of the table! Where did it go...?", "Despite your best efforts, you managed to drop a die.. Where did it go?", "Where did the dice go?"]
+            var interruptions = ["Wait - where are they?", "Did it fall off of the table?", "Please, stop throwing the die onto the floor.", "Actually, your concentration was thrown off. Let's try again later.", "Oh no! A die fell off of the table! Where did it go...?", "Despite your best efforts, you managed to drop a die.. Where did it go?", "Where did the dice go?"]
             document.getElementById("box1").innerHTML = rando(interruptions);
         } else {
+            new Audio("media/rollDice.mp3").play();
             var wins = ["Lucky! You're a winner!", "It's a winner!", "Nice.", "Great!", "Finally!", "Yes!", "Brilliant!", "Perfect roll!", "Perfect!", "That's great!", "Unbelievable!"];
 		    var losses = ["Unlucky!", "Unfortunate!", "Nope.", "What if you placed down a higher bet?", "Not quite.", "Not quite!", "Nah.", "Nope!", "No!", "Not quite!", "Tough luck.", "Maybe next time.", "Typical.", "Typical!", "How unlucky!", "Most unfortunate!", "Oh!"];
 			var message = `${res == 6 ? rando(wins) : rando(losses)} You rolled ${res > 10 && res !== 12 ? "an" : "a"} ${res} out of 6${betAmount !== 0 ? " " : "!"}`;
@@ -173,12 +173,15 @@ function rollDice() {
                     takeItem("coin", betAmount);
                 }
             } */
+            betAmount = 0;
         }
         //document.getElementById("box1").innerHTML = "Clark: \"" + rando(losses) + " You rolled a...\"<h1>"+(Math.floor(Math.random()*6)+1)+"</h1>Clark: \"Would you like to roll again?\"";
         showElement("navbar");
         hideAllButtons();
         newButton("Try again.", rollBuildUp).then(function(id) {
-            if (win) buttons[id].innerHTML = "Roll again." += betAmount > 0 ? " (with bet)" : "";
+            var message = buttons[id].innerHTML;
+            if (win) message = "Roll again.";
+            if (message) buttons[id].innerHTML = message; 
         });
         newButton("Make a bet.", confirmBetAmount);
         addQuitButton();
