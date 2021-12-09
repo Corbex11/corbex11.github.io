@@ -34,10 +34,6 @@ body {
 	padding-bottom: 0.2%;
     box-sizing: border-box;
 	display: inline-block;
-	border-top-right-radius: 10px;
-	border-top-left-radius: 10px;
-	border-bottom-right-radius: 10px;
-	border-bottom-left-radius: 10px;
 }
 
 .button {
@@ -75,10 +71,6 @@ body {
 	padding-bottom: 5%;
     box-sizing: border-box;
 	float: left;
-	border-top-right-radius: 10px;
-	border-top-left-radius: 10px;
-	border-bottom-right-radius: 10px;
-	border-bottom-left-radius: 10px;
 }
 
 .box {
@@ -94,10 +86,6 @@ body {
 	animation-duration: 1s;
 	word-wrap: break-word;
 	overflow: hidden;
-	border-top-right-radius: 10px;
-	border-top-left-radius: 10px;
-	border-bottom-right-radius: 10px;
-	border-bottom-left-radius: 10px;
 }
 
 .box:hover {
@@ -128,10 +116,6 @@ img {
 	-webkit-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-	border-top-right-radius: 10px;
-	border-top-left-radius: 10px;
-	border-bottom-right-radius: 10px;
-	border-bottom-left-radius: 10px;
 }
 .navbar a {
 	float: left;
@@ -149,10 +133,6 @@ img {
 	font-family: verdana;
 	animation-name: fadeIn;
 	animation-duration: 4s;
-	border-top-right-radius: 10px;
-	border-top-left-radius: 10px;
-	border-bottom-right-radius: 10px;
-	border-bottom-left-radius: 10px;
 }
 .navbar a:hover {
 	background-color: rgb(200,200,200);

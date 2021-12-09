@@ -64,19 +64,7 @@ function rando (r) {
     return Array.isArray(r)||(r=Array.from(arguments)),r[Math.floor(Math.random()*r.length)];
 } 
 
-function saveData () {
-    hideAllButtons();
-    hideElement("credits");
-    fadeInBackground(0,0,100)
-    newButton("Record my Current Progress");
-    newButton("Continue from a Previous Save");
-    addQuitButton();
-    document.getElementById("logo").src = "media/save.png";
-    showElement("box1");
-    document.getElementById("box1").innerHTML = "<h2>Welcome to the Save Data menu.</h2><p>You can record all of your progress across the game here, and pick up from where you left off whenever you want to.</p>";
-}
-
-function newButton (label, onclick) { // Thanks: https://sebhastian.com/javascript-create-button/
+function newButton (label, onclick) { // https://sebhastian.com/javascript-create-button/
     return new Promise (function(resolve, reject) {
         var btn = document.createElement("a");
         btn.innerHTML = label || buttons.length;
@@ -138,6 +126,7 @@ function rollDice() {
         });
     }
     var rollBuildUp = function () {
+        hideAllButtons();
         hideElement("navbar");
         document.getElementById("box1").innerHTML = "Okay. Let's roll the dice...";
         if (Math.random() > 0.8) { // We don't always want a drumroll, it'll get annoying hearing it every time, so let's give it a 20% chance of happening instead.
@@ -190,10 +179,53 @@ function rollDice() {
     addQuitButton();
 }
 
+
+function saveData () {
+    hideAllButtons();
+    hideElement("credits");
+    fadeInBackground(0,0,100);
+    newButton("Record my Current Progress", () => {
+        
+    });
+    newButton("Continue from a Previous Save", () => {
+        hideAllButtons();
+        newButton(null, ).then(function(id) {
+            buttons[id].innerHTML = `<input type="file" id="filePicker"/>`;
+            var input = document.getElementById("filePicker"); // https://www.fwait.com/how-to-read-text-file-in-javascript-line-by-line/
+            input.addEventListener("change", () => {
+            let files = input.files;
+            if(files.length == 0) return;
+            const file = files[0];
+            let reader = new FileReader();
+            reader.onload = (e) => {
+                const file = e.target.result;
+                const lines = file.split(/\r\n|\n/);
+                showElement("box2");
+                document.getElementById("box2").innerHTML = lines.join("<br>");
+            };
+            reader.onerror = (e) => alert(e.target.error.name);
+            reader.readAsText(file);   
+            });
+        });
+        newButton("Go Back", () => {
+            saveData();
+        }).then(function(id) {
+            buttons[id].style.float = "right";
+        });
+    });
+    addQuitButton();
+    document.getElementById("logo").src = "media/save.png";
+    showElement("box1");
+    document.getElementById("box1").innerHTML = "<h2>Welcome to the Save Data menu.</h2><p>You can record all of your progress across the game here, and pick up from where you left off whenever you want to.</p>";
+}
+
 function showMenu() {
-    MIDIjs.play('media/music.mid');
+    // MIDIjs.play('media/music.mid');
     showElement("navbar");
     hideElement("box1");
+    document.getElementById("box1").innerHTML = "";
+    hideElement("box2");
+    document.getElementById("box2").innerHTML = "";
     showElement("credits");
     hideAllButtons();
     document.getElementById("logo").src="media/lobby.png";
