@@ -175,7 +175,6 @@ function rollDice() {
             } */
             betAmount = 0;
         }
-        //document.getElementById("box1").innerHTML = "Clark: \"" + rando(losses) + " You rolled a...\"<h1>"+(Math.floor(Math.random()*6)+1)+"</h1>Clark: \"Would you like to roll again?\"";
         showElement("navbar");
         hideAllButtons();
         newButton("Try again.", rollBuildUp).then(function(id) {

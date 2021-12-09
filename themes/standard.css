@@ -1,13 +1,19 @@
 body {
-	background: black;
+	background: white;
 	font-family: Arial, Helvetica, sans-serif;
 	margin: 0;
 	padding: 0;
 }
 
+@media (prefers-color-scheme: dark) {
+	body {
+		background: black;
+	}
+}
+
 .separator {
-	background: rgb(20,20,20);
-	color: white;
+	background: white;
+	color: gray;
 	border-top-right-radius: 10px;
 	border-top-left-radius: 10px;
 	border-bottom-right-radius: 10px;
@@ -19,6 +25,13 @@ body {
 	padding-bottom: 0.2%;
     box-sizing: border-box;
 	display: inline-block;
+}
+
+@media (prefers-color-scheme: dark) {
+	.separator {
+		background: rgb(20,20,20);
+		color: white;
+	}
 }
 
 .button {
@@ -46,8 +59,8 @@ body {
 }
 
 .content {
-	background: rgb(10,10,10);
-	color: white;
+	background: rgb(220, 220, 220);
+	color: black;
 	font-size: 12pt;
 	border-top-right-radius: 10px;
 	border-top-left-radius: 10px;
@@ -58,9 +71,18 @@ body {
 	padding-right: 10%;
 	padding-top: 2%;
 	padding-bottom: 5%;
-    box-sizing: border-box;
+	box-sizing: border-box;
 	float: left;
 }
+
+@media (prefers-color-scheme: dark) {
+	.content {
+		background: rgb(10,10,10);
+		color: white;
+	}
+}
+
+
 
 .gallery {
 	border-style: inset;
@@ -87,10 +109,9 @@ body {
 	height: auto;
 }
   
-
 .box {
-	background: rgb(20,20,20);
-	color: white;
+	background: white;
+	color: black;
 	font-family: monospace;
 	border-top-right-radius: 10px;
 	border-top-left-radius: 10px;
@@ -105,7 +126,17 @@ body {
 }
 
 .box:hover {
-	background: rgb(15,15,15);
+	background: rgb(240,240,240);
+}
+
+@media (prefers-color-scheme: dark) {
+	.box {
+		background: rgb(20,20,20);
+		color: white;
+	}
+	.box:hover {
+		background: rgb(15,15,15);
+	}
 }
 
 .unselectable {
@@ -121,7 +152,7 @@ img {
 }
 
 .navbar {
-	background: rgb(20,20,20);
+	background: rgb(0, 50, 90);
 	color: white;
 	border-bottom-right-radius: 10px;
 	border-bottom-left-radius: 10px;
@@ -131,6 +162,7 @@ img {
 	padding-bottom: 0.4%;
 	padding-top: 0.4%;
 }
+
 .navbar a {
 	float: left;
 	color: white;
@@ -146,12 +178,28 @@ img {
 	border-bottom-right-radius: 10px;
 	border-bottom-left-radius: 10px;
 }
+
 .navbar a.active {
-	background-color: rgb(0, 50, 90);
-}
-.navbar a:hover {
 	background-color: rgb(0,150,200);
 }
+
+.navbar a:hover {
+	background-color: rgb(0,200,255);
+}
+
+@media (prefers-color-scheme: dark) {
+	.navbar {
+		background: rgb(20,20,20);
+		color: white;
+	}
+	.navbar a.active {
+		background-color: rgb(0, 50, 90);
+	}
+	.navbar a:hover {
+		background-color: rgb(0,150,200);
+	}
+}
+
 
 /* Animations */
 @keyframes fadeIn {
@@ -192,13 +240,4 @@ img {
 }
 ::-webkit-scrollbar-thumb:hover {
 	background: rgb(0,200,260)
-}
-
- /* unvisited link */
-a:link {
-	color: white;
-}
-/* visited link */
-a:visited {
-	color: white;
 }
