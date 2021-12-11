@@ -7,7 +7,7 @@ var audio = new Audio();
 
 function hideElement (element) {
     var element = document.getElementById(element);
-    if (window.getComputedStyle(element).display == "block") {
+    if (element.style.display == "block" || element.style.display == '') {
         element.style.animation = "fadeOut 0.5s linear infinite"
         setTimeout(() => {
             element.style.display = "none";
@@ -27,13 +27,20 @@ function showElement (element) {
     }
 }
 
+function restoreBackgroundColours () {
+    fadeInBackground(5, 5, 5, document.body);
+    fadeInBackground(10, 10, 10, document.getElementById("content"));
+}
+
 backgroundChangeInProgress = false;
-function fadeInBackground(R, G, B) {
+function fadeInBackground(R, G, B, element) {
     var waitForBackgroundChange = setInterval(() => {
         if (!backgroundChangeInProgress) {
             clearInterval(waitForBackgroundChange);
             backgroundChangeInProgress = true;
-            var rgb = window.getComputedStyle(document.body).backgroundColor.split("rgb(")[1].split(")")[0].replace(/ /g,"").split(",");
+            if (!element) element = document.body;
+            if (!element.style.background) element.style.background = window.getComputedStyle(document.getElementById("content")).backgroundColor;
+            var rgb = element.style.background.split("rgb(")[1].split(")")[0].replace(/ /g,"").split(",");
             var r = Number(rgb[0]); // current red
             var g = Number(rgb[1]); // current green
             var b = Number(rgb[2]); // current blue
@@ -44,7 +51,7 @@ function fadeInBackground(R, G, B) {
                 if (R < r) r--; // if desired red is lower than current red, make current red lower
                 if (G < g) g--;
                 if (B < b) b--;
-                document.body.style.backgroundColor = `rgb(${r},${g},${b})`;
+                element.style.background = `rgb(${r},${g},${b})`;
                 if (r == R && g == G && b == B) {
                     clearInterval(int);
                     backgroundChangeInProgress = false;
@@ -102,7 +109,7 @@ function rollDice() {
     showElement("box1");
     document.getElementById("box1").innerHTML = "Let's get started, then! Will you be placing a bet on this roll?";
     hideAllButtons();
-    fadeInBackground(0,0,40);
+    fadeInBackground(0, 0, 40, document.body);
     document.getElementById("logo").src = "media/dice.png";
     var betAmount = 0;
     var confirmBetAmount = function () {
@@ -182,14 +189,13 @@ function rollDice() {
 
 function saveData () {
     hideAllButtons();
-    hideElement("credits");
-    fadeInBackground(0,0,100);
+    fadeInBackground(0, 0, 100, document.body);
     newButton("Record my Current Progress", () => {
         
     });
     newButton("Continue from a Previous Save", () => {
         hideAllButtons();
-        newButton(null, ).then(function(id) {
+        newButton(null).then(function(id) {
             buttons[id].innerHTML = `<input type="file" id="filePicker"/>`;
             var input = document.getElementById("filePicker"); // https://www.fwait.com/how-to-read-text-file-in-javascript-line-by-line/
             input.addEventListener("change", () => {
@@ -216,24 +222,146 @@ function saveData () {
     addQuitButton();
     document.getElementById("logo").src = "media/save.png";
     showElement("box1");
-    document.getElementById("box1").innerHTML = "<h2>Welcome to the Save Data menu.</h2><p>You can record all of your progress across the game here, and pick up from where you left off whenever you want to.</p>";
+    revealText("Welcome to the Save Data menu. You can record all of your progress across the game here, and pick up from where you left off whenever you want to.", document.getElementById("box1"));
 }
 
-function showMenu() {
+function revealText (text, element) {
+    if (tempData.revealTextInt) clearInterval(tempData.revealTextInt);
+    var i = -1;
+    tempData.revealTextInt = setInterval(() => {
+        i++;
+        element.innerHTML += text.charAt(i);
+        if (i == text.length) clearInterval(tempData.revealTextInt);
+    }, 50);
+}
+
+function startGame () {
+    playScene({
+        "notes": ["Introduction"],
+        "cmds": [
+            { "cmd": "background", "input": { "colors": [[0, 0, 0]] }},
+            { "cmd": "wait", "input": 10000 },
+            { "cmd": "dialogue", "input": { "speaker": null, "speech": "..." }},
+            { "cmd": "wait", "input": 5000 },
+            { "cmd": "dialogue" },
+            { "cmd": "dialogue", "input": { "speaker": null, "speech": "...Where am I...?" }},
+            { "cmd": "options", "input": { "Stand up": "wait = false;" }},
+            { "cmd": "eval", "input": "wait = true;" },
+            { "cmd": "background", "input": { "colors": [[0, 0, 0]] }}
+        ]
+    });
+}
+
+function hideAll () {
+    hideAllButtons();
+    hideElement("navbar");
+    hideElement("topbar");
+    hideElement("content");
+    hideElement("box1");
+    hideElement("box2");
+    document.getElementById("box1").innerHTML = "";
+    document.getElementById("box2").innerHTML = "";
+}
+
+var tempData = {}
+
+function playScene (scene) {
+    hideAll();
+    setTimeout(() => {
+        showElement("content");
+        showElement("box1");
+        document.getElementById("box1").innerHTML = scene.notes.join("<br>");
+        setTimeout(() => {
+        hideElement("content");
+        setTimeout(() => { document.getElementById("box1").innerHTML = ""; }, 500);
+        var wait = false;
+        var i = -1
+        var scenePlayer = setInterval(() => {
+            if (!wait) {
+                i++;
+                var cmd = scene.cmds[i].cmd.toLowerCase();
+                var input = scene.cmds[i].input;
+                switch (cmd) {
+                    case "hideall":
+                        hideAll();
+                    break;
+                    case "wait":
+                        wait = true;
+                        setTimeout(() => { wait = false }, input);
+                    break;
+                    case "background":
+                        if (!input) {
+                            if (tempData.sceneBackgroundInterval) clearInterval(tempData.sceneBackgroundInterval);
+                        } else {
+                            if (!input.colors) input.colors = [[0, 0, 0]];
+                            if (input.colors.length == 1) { 
+                                fadeInBackground(input.colors[0][0], input.colors[0][1], input.colors[0][2]);
+                            } else {
+                                var i2 = -1;
+                                tempData.sceneBackgroundInterval = setInterval(() => {
+                                    i2++;
+                                    fadeInBackground(input.colors[i2][0], input.colors[i2][1], input.colors[i2][2]);
+                                    if (i2 == input.colors.length - 1) i2 = -1;
+                                }, input.freq || 5000);
+                            }
+                        }
+                    break;
+                    case "dialogue":
+                        if (!input) {
+                            document.getElementById("box1").innerHTML = "";
+                        } else {
+                            var txt = `"${input.speech}" `;
+                            wait = true;
+                            setTimeout(() => { wait = false; }, txt.length * 100);
+                            showElement("content");
+                            showElement("box1");
+                            revealText(txt, document.getElementById("box1"));
+                        }
+                    break;
+                    case "eval":
+                        if (input) {
+                            eval(input);
+                        }
+                    break;
+                    case "options":
+                        if (input) {
+                            showElement("navbar");
+                            for (var i3 = 0; i3 < Object.keys(input).length; i3++) {
+                                console.log(Object.keys(input)[i3]);
+                                console.log(input[Object.keys(input)[i3]])
+                                eval(`newButton("${Object.keys(input)[i3]}", () => {
+                                    eval("${input[Object.keys(input)[i3]]}");
+                                })`);
+                            }
+                        }
+                    break;
+                }
+            }
+            if (i >= scene.cmds.length - 1) clearInterval(scenePlayer);
+        }, 10);
+        }, 2000);
+    }, 2000);
+}
+
+function showMenu () {
     // MIDIjs.play('media/music.mid');
+    restoreBackgroundColours();
+    if (tempData.revealTextInt) clearInterval(tempData.revealTextInt);
     showElement("navbar");
+    showElement("topbar");
+    showElement("content");
     hideElement("box1");
     document.getElementById("box1").innerHTML = "";
     hideElement("box2");
     document.getElementById("box2").innerHTML = "";
-    showElement("credits");
     hideAllButtons();
     document.getElementById("logo").src="media/lobby.png";
-    fadeInBackground(5,5,5);
-    newButton("Roll the Dice!", rollDice);
+    newButton("Start Game", startGame);
     newButton("Save Data", saveData);
 }
 
 window.onload = function() {
-    showMenu();
+    setTimeout(() => {
+        showMenu();
+    }, 1000);
 }
