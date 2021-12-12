@@ -195,6 +195,8 @@ function saveData () {
     });
     newButton("Continue from a Previous Save", () => {
         hideAllButtons();
+        document.getElementById("box1").innerHTML = "";
+        revealText("Select a previously saved file.", document.getElementById("box1"));
         newButton(null).then(function(id) {
             buttons[id].innerHTML = `<input type="file" id="filePicker"/>`;
             var input = document.getElementById("filePicker"); // https://www.fwait.com/how-to-read-text-file-in-javascript-line-by-line/
@@ -222,6 +224,7 @@ function saveData () {
     addQuitButton();
     document.getElementById("logo").src = "media/save.png";
     showElement("box1");
+    document.getElementById("box1").innerHTML = "";
     revealText("Welcome to the Save Data menu. You can record all of your progress across the game here, and pick up from where you left off whenever you want to.", document.getElementById("box1"));
 }
 
@@ -232,7 +235,7 @@ function revealText (text, element) {
         i++;
         element.innerHTML += text.charAt(i);
         if (i == text.length) clearInterval(tempData.revealTextInt);
-    }, 50);
+    }, 20);
 }
 
 function startGame () {
@@ -240,14 +243,13 @@ function startGame () {
         "notes": ["Introduction"],
         "cmds": [
             { "cmd": "background", "input": { "colors": [[0, 0, 0]] }},
-            { "cmd": "wait", "input": 10000 },
+            { "cmd": "wait", "input": 7000 },
             { "cmd": "dialogue", "input": { "speaker": null, "speech": "..." }},
             { "cmd": "wait", "input": 5000 },
             { "cmd": "dialogue" },
             { "cmd": "dialogue", "input": { "speaker": null, "speech": "...Where am I...?" }},
             { "cmd": "options", "input": { "Stand up": "wait = false;" }},
-            { "cmd": "eval", "input": "wait = true;" },
-            { "cmd": "background", "input": { "colors": [[0, 0, 0]] }}
+            { "cmd": "background", "input": { "colors": [[255, 0, 0]] }}
         ]
     });
 }
@@ -287,7 +289,7 @@ function playScene (scene) {
                     break;
                     case "wait":
                         wait = true;
-                        setTimeout(() => { wait = false }, input);
+                        if (input) setTimeout(() => { wait = false }, input);
                     break;
                     case "background":
                         if (!input) {
@@ -312,13 +314,15 @@ function playScene (scene) {
                         } else {
                             var txt = `"${input.speech}" `;
                             wait = true;
-                            setTimeout(() => { wait = false; }, txt.length * 100);
+                            setTimeout(() => { wait = false; }, txt.length * 20);
                             showElement("content");
                             showElement("box1");
                             revealText(txt, document.getElementById("box1"));
                         }
                     break;
                     case "eval":
+                        console.log(input);
+                        console.log(wait);
                         if (input) {
                             eval(input);
                         }
@@ -333,6 +337,8 @@ function playScene (scene) {
                                     eval("${input[Object.keys(input)[i3]]}");
                                 })`);
                             }
+                        } else {
+                            hideAllButtons();
                         }
                     break;
                 }
@@ -344,7 +350,8 @@ function playScene (scene) {
 }
 
 function showMenu () {
-    // MIDIjs.play('media/music.mid');
+    audio.src = "media/nightsky.mp3";
+    audio.play();
     restoreBackgroundColours();
     if (tempData.revealTextInt) clearInterval(tempData.revealTextInt);
     showElement("navbar");
