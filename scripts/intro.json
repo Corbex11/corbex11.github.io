@@ -10,6 +10,6 @@
         { "cmd": "options", "input": { "Stand up": "wait = false;" }},
         { "cmd": "wait" },
         { "cmd": "options" },
-        { "cmd": "background", "input": { "colors": [[255, 0, 0]] }}
+        { "cmd": "background", "input": { "colors": [[0, 160, 80], [0, 200, 200]] }}
     ]
 }

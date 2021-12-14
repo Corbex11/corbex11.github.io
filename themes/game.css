@@ -22,8 +22,8 @@ body {
 
  body{ height:100vh; margin:0; }
 
- header{ min-height:50px; }
- footer{ min-height:50px; }
+ footer{ position:sticky;
+    bottom:0; }
  
  /* Trick */
  body{ 
