@@ -20,6 +20,20 @@ body {
 	}
  }
 
+ body{ height:100vh; margin:0; }
+
+ header{ min-height:50px; }
+ footer{ min-height:50px; }
+ 
+ /* Trick */
+ body{ 
+   display:flex; 
+   flex-direction:column; 
+ }
+ 
+ footer{
+   margin-top:auto; 
+ }
 
 .separator {
 	background: rgb(20,20,20);
@@ -71,6 +85,7 @@ body {
 	padding-bottom: 5%;
     box-sizing: border-box;
 	float: left;
+	height: 100%;
 }
 
 .box {

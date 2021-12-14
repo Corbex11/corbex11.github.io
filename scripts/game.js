@@ -1,5 +1,5 @@
 /* callum fisher - corbex11@gmail.com
-last updated 30/11/2021 */
+last updated 14/12/2021 */
 
 var buttons = [];
 var data = {};
@@ -249,7 +249,9 @@ function startGame () {
             { "cmd": "dialogue" },
             { "cmd": "dialogue", "input": { "speaker": null, "speech": "...Where am I...?" }},
             { "cmd": "options", "input": { "Stand up": "wait = false;" }},
-            { "cmd": "background", "input": { "colors": [[255, 0, 0]] }}
+            { "cmd": "wait" },
+            { "cmd": "options" },
+            { "cmd": "background", "input": { "colors": [[0,160, 80]] }}
         ]
     });
 }
@@ -350,15 +352,16 @@ function playScene (scene) {
 }
 
 function showMenu () {
-    audio.src = "media/nightsky.mp3";
+    audio.src = "media/introduction.mp3";
     audio.play();
     restoreBackgroundColours();
     if (tempData.revealTextInt) clearInterval(tempData.revealTextInt);
     showElement("navbar");
     showElement("topbar");
     showElement("content");
-    hideElement("box1");
+    showElement("box1");
     document.getElementById("box1").innerHTML = "";
+    revealText("Welcome", document.getElementById("box1"));
     hideElement("box2");
     document.getElementById("box2").innerHTML = "";
     hideAllButtons();
