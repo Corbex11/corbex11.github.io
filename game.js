@@ -404,7 +404,7 @@ function showMenu () {
     showElement("content");
     showElement("box1");
     document.getElementById("box1").innerHTML = "";
-    revealText("Welcome", document.getElementById("box1"));
+    revealText("Welcome to my attempt at creating some sort of text-based RPG inspired by the DS game Dragon's Quest and similar titles.", document.getElementById("box1"));
     hideElement("box2");
     document.getElementById("box2").innerHTML = "";
     hideAllButtons();
