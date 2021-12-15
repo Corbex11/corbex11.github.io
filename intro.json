@@ -1,0 +1,20 @@
+{
+    "notes": ["Introduction"],
+    "cmds": [
+        { "cmd": "background", "input": { "colors": [[0, 0, 0]] }},
+        { "cmd": "wait", "input": 7000 },
+        { "cmd": "dialogue", "input": { "speaker": null, "speech": "..." }},
+        { "cmd": "wait", "input": 5000 },
+        { "cmd": "dialogue" },
+        { "cmd": "dialogue", "input": { "speaker": null, "speech": "...Where am I...?" }},
+        { "cmd": "options", "input": { "Stand up": "wait = false;" }},
+        { "cmd": "wait" },
+        { "cmd": "options" },
+        { "cmd": "audio", "input": "intro.mp3" },
+        { "cmd": "dialogue", "input": { "speaker": 0, "speech": "You arise on cold stone in a dimly lit room." }},
+        { "cmd": "background", "input": { "colors": [[50, 160, 80]] }},
+        { "cmd": "wait", "input": 2000 },
+        { "cmd": "background", "input": { "colors": [[20, 0, 0]] }},
+        { "cmd": "options", "input": { "Okay": "wait = false;" }}
+    ]
+}

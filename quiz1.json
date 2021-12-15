@@ -1,0 +1,11 @@
+{
+    "title": "Test Quiz",
+    "questions": [
+        {
+            "points": 3,
+            "question": "What is 1 + 1?",
+            "answers": ["two", "2"],
+            "options": []
+        }
+    ]
+}
