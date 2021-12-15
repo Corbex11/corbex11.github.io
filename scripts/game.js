@@ -251,11 +251,12 @@ function startGame () {
             { "cmd": "options", "input": { "Stand up": "wait = false;" }},
             { "cmd": "wait" },
             { "cmd": "options" },
-            { "cmd": "dialogue", "input": { "speaker": null, "speech": "Wow..!" }},
             { "cmd": "background", "input": { "colors": [[0, 160, 80], [0, 200, 200]] }}
         ]
     });
 }
+
+
 
 function hideAll () {
     hideAllButtons();
@@ -269,6 +270,38 @@ function hideAll () {
 }
 
 var tempData = {}
+
+tempData.doCursorAnimation = true;
+tempData.cursorAnimInfo = {
+    x: 50,
+    y: 80,
+    yIncrement: 0.01,
+    xIncrement: 0.01
+}
+tempData.cursorAnimInfo.xyControl = setInterval(() => {
+    if (tempData.doCursorAnimation) {
+        tempData.cursorAnimInfo.left ? tempData.cursorAnimInfo.x -= tempData.cursorAnimInfo.xIncrement : tempData.cursorAnimInfo.x += tempData.cursorAnimInfo.xIncrement;
+        if (tempData.cursorAnimInfo.x > 95) tempData.cursorAnimInfo.left = true;
+        if (tempData.cursorAnimInfo.x < 0) tempData.cursorAnimInfo.left = false;
+        tempData.cursorAnimInfo.down ? tempData.cursorAnimInfo.y -= tempData.cursorAnimInfo.yIncrement : tempData.cursorAnimInfo.y += tempData.cursorAnimInfo.yIncrement;
+        if (tempData.cursorAnimInfo.y > 95) tempData.cursorAnimInfo.down = true;
+        if (tempData.cursorAnimInfo.y < 0) tempData.cursorAnimInfo.down = false;
+    }
+}, 10);
+tempData.cursorAnimInfo.randomControl = setInterval(() => {
+    tempData.cursorAnimInfo.yIncrement = 0.03;
+    tempData.cursorAnimInfo.xIncrement = 0.03;
+    setTimeout(() => {
+        tempData.cursorAnimInfo.yIncrement = 0.01;
+        tempData.cursorAnimInfo.xIncrement = 0.01;
+    }, 600);
+    if (Math.random() > 0.7) tempData.cursorAnimInfo.left = !tempData.cursorAnimInfo.left;
+    if (Math.random() > 0.7) tempData.cursorAnimInfo.down = !tempData.cursorAnimInfo.down;
+}, 5000);
+tempData.cursorAnimInfo.sendControl = setInterval(() => {
+    document.getElementById("thing").style.left = tempData.cursorAnimInfo.x + "%";
+    document.getElementById("thing").style.top = tempData.cursorAnimInfo.y + "%";
+}, 10);
 
 function playScene (scene) {
     hideAll();
@@ -362,128 +395,7 @@ function showMenu () {
     showElement("content");
     showElement("box1");
     document.getElementById("box1").innerHTML = "";
-    revealText(`The FitnessGram PACER Test is a multistage aerobic capacity test that progressively gets more difficult as it continues.
-
-    The test is used to measure a student's aerobic capacity as part of the FitnessGram assessment. Students run back and forth as many times as they can, each lap signaled by a beep sound. The test get progressively faster as it continues until the student reaches their max lap score.
-    
-    The PACER Test score is combined in the FitnessGram software with scores for muscular strength, endurance, flexibility and body composition to determine whether a student is in the Healthy Fitness Zone™ or the Needs Improvement Zone™.
-    This isn't a paywall.
-    We'll cut to the chase: 98% of Wikipedia's readers don't give; they simply look away. All we ask is £2, or whatever seems right to you this Tuesday, before you get back to your article.
-    DONATE MAYBE LATER
-    Jean Edward Smith
-    From Wikipedia, the free encyclopedia
-    Jump to navigationJump to search
-    Jean Edward Smith
-    Born	October 13, 1932
-    Washington, D.C., U.S.
-    Died	September 1, 2019 (aged 86)
-    Huntington, West Virginia, U.S.
-    Alma mater	Princeton University (A.B., 1954) Columbia University (Ph.D., 1964)
-    Occupation	Biographer, academic
-    We ask you, humbly: don't scroll away.
-     Hi reader. This is the 9th time we’ve interrupted your reading recently, but 98% of our readers don't give. Many think they’ll give later, but then forget. This Tuesday we ask you to protect Wikipedia. All we ask is £2, or what you can afford, to secure our future. We ask you, humbly: Please don't scroll away. If you are one of our rare donors, we warmly thank you.
-    Please select a payment method
-    
-    MAYBE LATER  CLOSE 
-    Jean Edward Smith (October 13, 1932 – September 1, 2019) was a biographer and the John Marshall Professor of Political Science at Marshall University.[1] He was also professor emeritus at the University of Toronto after having served as professor of political economy there for thirty-five years. Smith was also on the faculty of the Master of American History and Government program at Ashland University.[2]
-    
-    The winner of the 2008 Francis Parkman Prize and the 2002 finalist for the Pulitzer Prize for Biography or Autobiography, Smith was called "today’s foremost biographer of formidable figures in American history."[1][3]
-    
-    
-    Contents
-    1	Education and military service
-    2	Career
-    3	Bibliography
-    4	References
-    5	External links
-    Education and military service
-    
-    This section does not cite any sources. Please help improve this section by adding citations to reliable sources. Unsourced material may be challenged and removed. (January 2013) (Learn how and when to remove this template message)
-    A graduate of McKinley High School in Washington, D.C., Smith received an A.B. from Princeton University in 1954. While attending Princeton, Smith was mentored under law professor and political scientist William M. Beaney. Serving in the military from 1954 to 1961, he rose to the rank of Captain (RA) US Army (Artillery). Smith served in West Berlin and Dachau, Germany. In 1964, he obtained a Ph.D. from the Department of Public Law and Government of Columbia University.
-    
-    Career
-    Smith began his teaching career as assistant professor of government at Dartmouth College, a post he held from 1963 until 1965. He then became a professor of political economy at the University of Toronto in 1965 until his retirement in 1999. Smith also served as visiting professor at several universities during his tenure at the University of Toronto and after his retirement including the Freie Universität in Berlin, Georgetown University,[4] the University of Virginia’s Woodrow Wilson Department of Government and Foreign Affairs, the University of California at San Diego, and Marshall University in Huntington, West Virginia. He died on September 1, 2019, from complications of Parkinson's disease with his family by his side.[5][6]
-    
-    Bibliography
-    Smith won the 2008 Francis Parkman Prize for FDR, his 2007 biography. He was the 2002 finalist for the Pulitzer Prize for Biography or Autobiography for Grant, his 2001 biography.
-    
-    The Defense of Berlin. Baltimore: Johns Hopkins University Press, 1963. (LCCN 63-17670)
-    The Wall as Watershed. Arlington, Virginia: Institute for Defense Analyses, 1966.
-    Germany Beyond the Wall: People, Politics, and Prosperity. Boston: Little, Brown, 1969.
-    The Papers of Lucius D. Clay: Germany, 1945-1949. (ed.) Bloomington, Ind.: Indiana University Press, 1974.
-    The Evolution of NATO with Four Plausible Threat Scenarios. (with Steven L. Canby), Ottawa, Canada: Canada Department of National Defence, 1987.
-    The Conduct of American Foreign Policy Debated. (with Herbert Levine) New York: McGraw-Hill, 1990.
-    Civil Rights and Civil Liberties Debated. (with Herbert Levine) 1988. (ISBN 013134966X)
-    The Constitution and American Foreign Policy.
-    Lucius D. Clay: An American Life. New York: Henry Holt and Company, 1990. (ISBN 080500999X)
-    George Bush's War. New York: Henry Holt and Company, 1992. (ISBN 0805013881)
-    John Marshall: Definer of a Nation. New York: Henry, Holt & Company, 1996. (ISBN 080501389X)
-    The Face of Justice: Portraits of John Marshall. (with William H. Gerdts, Wendell D. Garrett, Frederick S. Voss, and David B. Dearinger), Huntington, West Virginia: Huntington Museum of Art, 2001. (ISBN 0965388816)
-    Grant. New York: Simon and Schuster, 2001. (ISBN 0684849267)
-    FDR. New York: Random House, 2007. (ISBN 9781400061211)
-    Eisenhower in War and Peace. New York: Random House, 2012. (ISBN 9781400066933)
-    Bush. New York: Simon & Schuster, 2016. (ISBN 9781476741192)[7]
-    The Liberation of Paris: How Eisenhower, de Gaulle, and von Choltitz Saved the City of Light. New York: Simon and Schuster, 2019. (ISBN 9781501164927)
-    References
-     "Jean Edward Smith". Marshall University. Retrieved 2012-01-05.
-     "Jean Edward Smith". Ashland University. Archived from the original on 2012-02-06. Retrieved 2012-01-05.
-     "Biography or Autobiography". The Pulitzer Prizes. Columbia University. Retrieved 2012-01-05.
-     "Jean Edward Smith Papers". Georgetown University. Archived from the original on 2012-02-04.
-     Seelye, Katherine Q. (September 13, 2019). "Jean Edward Smith, Biographer of the Underrated, Dies at 86". The New York Times. Retrieved 2019-12-25.
-     Ingram, Sarah (September 10, 2019). "Nationally recognized author with Marshall connections dies". The Parthenon. Retrieved 2019-12-25.
-     Baker, Peter (July 3, 2016). "Review: 'Bush,' a Biography as Scathing Indictment". The New York Times. Retrieved July 5, 2016.
-    External links
-    Appearances on C-SPAN
-    Authority control Edit this at Wikidata
-    General	
-    Integrated Authority File (Germany)ISNI 1VIAF 1WorldCat
-    National libraries	
-    NorwayFrance (data)United StatesNetherlandsPolandSweden
-    Other	
-    Faceted Application of Subject TerminologySocial Networks and Archival ContextSUDOC (France) 1
-    Categories: 1932 births2019 deaths21st-century American historians21st-century American male writersAshland University facultyColumbia University alumniDartmouth College facultyGeorgetown University facultyLegal historiansMarshall University facultyMilitary personnel from Washington, D.C.Official biographers to the presidents of the United StatesPrinceton University alumniUnited States Army officersUniversity of California, San Diego facultyUniversity of Toronto facultyUniversity of Virginia facultyWriters from Washington, D.C.American male non-fiction writers
-    Navigation menu
-    Not logged in
-    Talk
-    Contributions
-    Create account
-    Log in
-    ArticleTalk
-    ReadEditView history
-    Search
-    Search Wikipedia
-    Main page
-    Contents
-    Current events
-    Random article
-    About Wikipedia
-    Contact us
-    Donate
-    Contribute
-    Help
-    Learn to edit
-    Community portal
-    Recent changes
-    Upload file
-    Tools
-    What links here
-    Related changes
-    Special pages
-    Permanent link
-    Page information
-    Cite this page
-    Wikidata item
-    Print/export
-    Download as PDF
-    Printable version
-    
-    Languages
-    العربية
-    مصرى
-    Edit links
-    This page was last edited on 4 November 2021, at 12:33 (UTC).
-    Text is available under the Creative Commons Attribution-ShareAlike License; additional terms may apply. By using this site, you agree to the Terms of Use and Privacy Policy. Wikipedia® is a registered trademark of the Wikimedia Foundation, Inc., a non-profit organization.
-    Privacy policyAbout WikipediaDisclaimersContact WikipediaMobile viewDevelopersStatisticsCookie statementWikimedia FoundationPowered by MediaWiki`, document.getElementById("box1"));
+    revealText("Welcome", document.getElementById("box1"));
     hideElement("box2");
     document.getElementById("box2").innerHTML = "";
     hideAllButtons();
