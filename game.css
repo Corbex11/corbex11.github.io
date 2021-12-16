@@ -12,7 +12,7 @@ body {
 	   padding-right: 10%;
 	}
 }
- 
+
 @media only screen and (max-width: 600px) {
 	body {
 	   padding-left: 0;
@@ -22,7 +22,7 @@ body {
 
 @font-face {
 	font-family: "font";
-	src: url("PressStart2P-vaV7.ttf");
+	src: url("Warioland4chmc-VApe.ttf");
 }
 
 body {
