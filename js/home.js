@@ -47,7 +47,7 @@ window.onload = function() {
     // <marquee width="100%" direction="left">
     var infoboard = document.getElementById("infoboard");
     infoboard.style.display = "block";
-    infoboard.innerHTML = `<center>(i) Information Board (i)</center><hr><li>${days[date.getDay()]}, ${suffix_of(date.getDate())} of ${months[date.getMonth()]} ${date.getFullYear()}</li>`;
+    infoboard.innerHTML = `<center>(i) Information Board (i)</center><hr><li>Today is ${days[date.getDay()]}, ${suffix_of(date.getDate())} of ${months[date.getMonth()]} ${date.getFullYear()}</li>`;
     document.getElementById("welcome").innerHTML = `Good ${hour >= 12 ? hour >= 17 && hour < 20 ? "evening <img src=\"media/lobby.png\">" : "afternoon" : "morning"}`;
     fetch(`${location.href}/../infoboard.txt`).then(function(data) {
         data.text().then((txt) => {
