@@ -9,7 +9,7 @@ const days = [
     "Thursday",
     "Friday",
     "Saturday"
-]
+];
 
 const months = [
     "January",
@@ -24,7 +24,7 @@ const months = [
     "October",
     "November",
     "December"
-]
+];
 
 function suffix_of(i) {
     var j = i % 10,

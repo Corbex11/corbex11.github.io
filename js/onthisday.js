@@ -1,7 +1,7 @@
 /* callum fisher - corbex11@gmail.com
 last updated: 19/12/21 */
 
-var events = [
+const events = [
     { "start": "12 10", "end": "12 30", "msg": "Merry Christmas!" },
     { "start": "10 31", "end": "11 1", "msg": "Happy Halloween!"},
     { "start": "11 5", "end": "11 6", "msg": "Happy bonfire night!" },
