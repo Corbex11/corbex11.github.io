@@ -99,9 +99,9 @@ body {
 	overflow: hidden;
 }
 
-.box:hover {
+/* .box:hover {
 	background: rgb(240,240,240);
-}
+} */
 
 @media (prefers-color-scheme: dark) {
 	.box {
@@ -109,9 +109,9 @@ body {
 		color: white;
 		box-shadow: 2px 2px 4px black;
 	}
-	.box:hover {
+	/* .box:hover {
 		background: rgb(15,15,15);
-	}
+	} */
 }
 
 .unselectable {

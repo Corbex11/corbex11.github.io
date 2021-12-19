@@ -1,32 +1,33 @@
 /* callum fisher - corbex11@gmail.com
-last updated: 3/11/21 */
+last updated: 19/12/21 */
 
-var events = [ // to-do: implement "start" and "end" dates for events to avoid repetition
-    {month:12,date:24,msg:"Merry Christmas!"},
-    {month:12,date:25,msg:"Merry Christmas!"},
-    {month:12,date:26,msg:"Merry Christmas!"},
-    {month:10,date:30,msg:"Happy Halloween!"},
-    {month:10,date:31,msg:"Happy Halloween!"},
-    {month:11,date:1,msg:"Happy Halloween!"},
-    {month:11,date:2,msg:"Bonfire night!"},
-    {month:11,date:11,msg:"Remembrance Day"},
-
+var events = [
+    { "start": "12 10", "end": "12 30", "msg": "Merry Christmas!" },
+    { "start": "10 31", "end": "11 1", "msg": "Happy Halloween!"},
+    { "start": "11 5", "end": "11 6", "msg": "Happy bonfire night!" },
+    { "start": "11 11", "end": "11 11", "msg": "Remembrance Day" }
 ]
 
-function eventsOnDay(month, date) {
+function fetchEvents(date, month) {
     var results = [];
     events.forEach((event) => {
-        if (event.month == month+1 && event.date == date) {
+        var today = new Date(month + " " + date + " " + new Date().getFullYear()).setMonth(month-1);
+        var eventStart = new Date(event.start + " " + new Date().getFullYear());
+        var eventEnd = new Date(event.end + " " + new Date().getFullYear());
+        if (eventEnd > today && today >= eventStart) {
             results.push(event.msg);
         }
     });
     return results;
-}
+ }
 
-function eventOnDay(month, date) {
+function fetchEvent(date, month) {
     var results = [];
     events.forEach((event) => {
-        if (event.month == month+1 && event.date == date) {
+        var today = new Date(month + " " + date + " " + new Date().getFullYear()).setMonth(month-1);
+        var eventStart = new Date(event.start + " " + new Date().getFullYear());
+        var eventEnd = new Date(event.end + " " + new Date().getFullYear());
+        if (eventEnd > today && today >= eventStart) {
             results.push(event.msg);
         }
     });

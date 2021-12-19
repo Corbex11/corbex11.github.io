@@ -136,17 +136,17 @@ function rollDice() {
         hideElement("navbar");
         document.getElementById("box1").innerHTML = "Okay. Let's roll the dice...";
         if (Math.random() > 0.8) { // We don't always want a drumroll, it'll get annoying hearing it every time, so let's give it a 20% chance of happening instead.
-            document.getElementById("logo").src = "drumroll.gif";
+            document.getElementById("logo").src = "media/drumroll.gif";
             new Audio("drumroll.mp3").play();
         } else {
-            document.getElementById("logo").src = "dice.gif";
+            document.getElementById("logo").src = "media/dice.gif";
         }
         setTimeout(() => { // Suspense!
             roll();
         }, 2000);
     }
     var roll = function () {
-        document.getElementById("logo").src = "rolldice.png";
+        document.getElementById("logo").src = "media/rolldice.png";
         var interrupt = Math.random() > 0.8;
         var res = Math.floor(Math.random()*6) + 1;
 		var win = res == 6;
@@ -221,7 +221,7 @@ function saveData () {
         });
     });
     addQuitButton();
-    document.getElementById("logo").src = "save.png";
+    document.getElementById("logo").src = "media/save.png";
     showElement("box1");
     document.getElementById("box1").innerHTML = "";
     revealText("Welcome to the Save Data menu. You can record all of your progress across the game here, and pick up from where you left off whenever you want to.", document.getElementById("box1"));
@@ -408,7 +408,7 @@ function showMenu () {
     hideElement("box2");
     document.getElementById("box2").innerHTML = "";
     hideAllButtons();
-    document.getElementById("logo").src="lobby.png";
+    document.getElementById("logo").src = "media/lobby.png";
     newButton("Start Game", startGame);
     newButton("Save Data", saveData);
 }

@@ -1,7 +1,7 @@
 /* callum fisher - corbex11@gmail.com
 last updated: 3/11/21 */
 
-var days = [
+const days = [
     "Sunday",
     "Monday",
     "Tuesday",
@@ -11,7 +11,7 @@ var days = [
     "Saturday"
 ]
 
-var months = [
+const months = [
     "January",
     "February",
     "March",
@@ -46,9 +46,17 @@ window.onload = function() {
     var hour = date.getHours();
     // <marquee width="100%" direction="left">
     var infoboard = document.getElementById("infoboard");
+    infoboard.style.display = "block";
     infoboard.innerHTML = `<center>(i) Information Board (i)</center><hr><li>${days[date.getDay()]}, ${suffix_of(date.getDate())} of ${months[date.getMonth()]} ${date.getFullYear()}</li>`;
-    infoboard.innerHTML += `<li>No additional notices!</li>`; // ${hour >= 12 ? hour >= 17 && hour < 20 ? "evening" : "afternoon" : "morning"}
-    eventsOnDay(date.getMonth(), date.getDate()).forEach((msg) => {
+    document.getElementById("welcome").innerHTML = `Good ${hour >= 12 ? hour >= 17 && hour < 20 ? "evening <img src=\"media/lobby.png\">" : "afternoon" : "morning"}`;
+    fetch(`${location.href}/../infoboard.txt`).then(function(data) {
+        data.text().then((txt) => {
+            txt.split("\n").forEach((line) => {
+                infoboard.innerHTML += `<li>${line}</li>`;
+            });
+        });
+    });
+    fetchEvents(date.getDate(), date.getMonth() + 1).forEach((msg) => {
         infoboard.innerHTML += `<li>${msg}</li>`;
     });
 }

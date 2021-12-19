@@ -1,6 +1,6 @@
 body {
 	background: rgb(0,0,0);
-	font-family: 'font', Arial, Helvetica, sans-serif;
+	font-family: "font", Arial, Helvetica, sans-serif;
 	margin: 0;
 	padding-left: 100px;
 	padding-right: 100px;
@@ -22,7 +22,7 @@ body {
 
 @font-face {
 	font-family: "font";
-	src: url("Warioland4chmc-VApe.ttf");
+	src: url("../media/fonts/Warioland4chmc-VApe.ttf");
 }
 
 body {
