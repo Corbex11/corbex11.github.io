@@ -1,5 +1,5 @@
 /* callum fisher - corbex11@gmail.com
-last updated: 3/11/21 */
+last updated: 19/12/21 */
 
 const days = [
     "Sunday",
