@@ -45,10 +45,11 @@ window.onload = function() {
     var date = new Date();
     var hour = date.getHours();
     // <marquee width="100%" direction="left">
+    document.getElementById("infoboardspace").style.display = "block";
     var infoboard = document.getElementById("infoboard");
     infoboard.style.display = "block";
     infoboard.innerHTML = `<center>(i) Information Board (i)</center><hr><li>Today is ${days[date.getDay()]}, ${suffix_of(date.getDate())} of ${months[date.getMonth()]} ${date.getFullYear()}</li>`;
-    document.getElementById("welcome").innerHTML = `Good ${hour >= 12 ? hour >= 17 && hour < 20 ? "evening <img src=\"media/lobby.png\">" : "afternoon" : "morning"}`;
+    document.getElementById("welcome").innerHTML = `Good ${hour >= 12 ? hour >= 17 && hour < 20 ? "evening <img src=\"media/lobby.png\">" : "afternoon" : "morning"}!`;
     fetch(`${location.href}/../infoboard.txt`).then(function(data) {
         data.text().then((txt) => {
             txt.split("\n").forEach((line) => {
@@ -59,4 +60,5 @@ window.onload = function() {
     fetchEvents(date.getDate(), date.getMonth() + 1).forEach((msg) => {
         infoboard.innerHTML += `<li>${msg}</li>`;
     });
+    if (hour < 7) document.getElementById("intro").innerHTML += "<br><br>Anyway, I won't bore you with any more of that. It is " + hour + " AM after all.";
 }
