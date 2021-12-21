@@ -16,6 +16,20 @@ body {
 	src: url("../media/fonts/Dosis-Book.ttf");
 }
 
+.logo {
+	background: rgb(220, 220, 220);
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+@media (prefers-color-scheme: dark) {
+	.logo {
+		background: rgb(30,30,30);
+	}
+}
+
 .separator {
 	background: white;
 	color: gray;
