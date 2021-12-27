@@ -2,7 +2,7 @@
 last updated: 27/12/21 */
 
 const events = [
-    { 'start': '12 10', 'end': '12 30', 'msg': 'Merry Christmas!' },
+    { 'start': '12 10', 'end': '12 30', 'msg': '<img src="media/santahat.png"> Merry Christmas!' },
     { 'start': '10 31', 'end': '11 1', 'msg': 'Happy Halloween!'},
     { 'start': '11 5', 'end': '11 6', 'msg': 'Happy bonfire night!' },
     { 'start': '11 11', 'end': '11 11', 'msg': 'Remembrance Day' }
