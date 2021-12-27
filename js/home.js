@@ -26,22 +26,21 @@ const months = [
     'December'
 ];
 
+
 function suffix_of (i) {
-    var j = i % 10,
-        k = i % 100;
-    if (j == 1 && k != 11) {
-        return i + 'st';
-    }
-    if (j == 2 && k != 12) {
-        return i + 'nd';
-    }
-    if (j == 3 && k != 13) {
-        return i + 'rd';
-    }
+
+    var j = i % 10, k = i % 100;
+
+    if (j == 1 && k != 11) return i + 'st';
+    if (j == 2 && k != 12) return i + 'nd';
+    if (j == 3 && k != 13) return i + 'rd';
+
     return i + 'th';
+
 }
 
-window.onload = function() {
+
+window.onload = () => {
 
     var date = new Date();
     var hour = date.getHours();
@@ -56,7 +55,7 @@ window.onload = function() {
     
     var stringToAdd = infoboard.innerHTML + '<ul>';
 
-    var fetchNews = function () {
+    var fetchNews = () => {
         fetch(`${location.href}/../infoboard.txt`).then((data) => {
             data.text().then((txt) => {
                 stringToAdd += '<ul>';
@@ -80,4 +79,5 @@ window.onload = function() {
     // Thanks: https://stackoverflow.com/questions/18983138/
 
     if (hour < 7) document.getElementById('intro').innerHTML += '<br><br>Anyway, I won\'t bore you with any more of that. It is ' + hour + ' AM after all.';
+
 }

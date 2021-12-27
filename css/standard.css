@@ -1,6 +1,9 @@
+/* callum fisher - corbex11@gmail.com
+last updated 27/12/2021 */
+
 body {
 	background: white;
-	font-family: "font";
+	font-family: "Dosis";
 	margin: 0;
 	padding: 0;
 }
@@ -12,7 +15,7 @@ body {
 }
 
 @font-face {
-	font-family: "font";
+	font-family: "Dosis";
 	src: url("../media/fonts/Dosis-Book.ttf");
 }
 
@@ -154,7 +157,6 @@ body {
 	padding-top: 10px;
 	padding-bottom: 10px;
 	text-decoration: none;
-	font-family: "font";
 	border-top-right-radius: 10px;
 	border-top-left-radius: 10px;
 	border-bottom-right-radius: 10px;

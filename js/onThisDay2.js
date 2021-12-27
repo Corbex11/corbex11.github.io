@@ -8,7 +8,9 @@ const events = [
     { 'start': '11 11', 'end': '11 11', 'msg': 'Remembrance Day' }
 ]
 
-function fetchEvents(date, month) {
+// to-do: combine these two functions:
+
+function fetchEvents (date, month) {
 
     var results = [];
 
@@ -21,9 +23,10 @@ function fetchEvents(date, month) {
 
     return results;
 
- }
+}
 
-function fetchEvent(date, month) {
+
+function fetchEvent (date, month) {
 
     var results = [];
 
