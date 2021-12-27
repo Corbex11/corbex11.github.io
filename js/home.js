@@ -1,5 +1,5 @@
 /* callum fisher - corbex11@gmail.com
-last updated: 19/12/21 */
+last updated: 27/12/21 */
 
 const days = [
     "Sunday",
@@ -44,7 +44,6 @@ function suffix_of(i) {
 window.onload = function() {
     var date = new Date();
     var hour = date.getHours();
-    // <marquee width="100%" direction="left">
     document.getElementById("infoboardspace").style.display = "block";
     var infoboard = document.getElementById("infoboard");
     infoboard.style.display = "block";
