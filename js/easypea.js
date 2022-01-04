@@ -232,7 +232,7 @@ function saveData () {
 function revealText (text, element) {
     if (data.temp.revealTextInt) clearInterval(data.temp.revealTextInt);
     var i = -1;
-    var blip = new Audio('../media/blip.mp3')
+    var blip = new Audio('../media/audio/blip.mp3')
     data.temp.revealTextInt = setInterval(() => {
         i++;
         element.innerHTML += text.charAt(i);
