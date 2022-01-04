@@ -78,6 +78,6 @@ window.onload = () => {
 
     // Thanks: https://stackoverflow.com/questions/18983138/
 
-    if (0 < hour < 7) document.getElementById('intro').innerHTML += '<br><br>Anyway, I won\'t bore you with any more of that. It is ' + hour + ' AM after all.';
+    if (hour < 7 && hour > 0) document.getElementById('intro').innerHTML += '<br><br>Anyway, I won\'t bore you with any more of that. It is ' + hour + ' AM after all.';
 
 }
