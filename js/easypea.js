@@ -106,12 +106,11 @@ function addQuitButton () {
 }
 
 function rollDice() {
-    hideElement('credits');
-    showElement('box1');
-    document.getElementById('box1').innerHTML = 'Let\'s get started, then! Will you be placing a bet on this roll?';
+    revealText('Let\'s get started, then! Will you be placing a bet on this roll?', document.getElementById("box1"));
     hideAllButtons();
     fadeInBackground(0, 0, 40);
-    document.getElementById('logo').src = 'dice.png';
+    document.getElementById('logo').src = 'media/dice.png';
+    document.getElementById('logo').width = "200";
     var betAmount = 0;
     var confirmBetAmount = function () {
         document.getElementById('box1').innerHTML = 'How much are you going to bet?';
@@ -136,10 +135,10 @@ function rollDice() {
     var rollBuildUp = function () {
         hideAllButtons();
         hideElement('navbar');
-        document.getElementById('box1').innerHTML = 'Okay. Let\'s roll the dice...';
+        revealText('Okay. Let\'s roll the dice...');
         if (Math.random() > 0.8) { // We don't always want a drumroll, it'll get annoying hearing it every time, so let's give it a 20% chance of happening instead.
             document.getElementById('logo').src = 'media/drumroll.gif';
-            new Audio('drumroll.mp3').play();
+            new Audio('media/audio/drumroll.mp3').play();
         } else {
             document.getElementById('logo').src = 'media/dice.gif';
         }
@@ -154,14 +153,15 @@ function rollDice() {
 		var win = res == 6;
         if (interrupt && betAmount == 0) {
             var interruptions = ['Wait - where are they?', 'Did it fall off of the table?', 'Please, stop throwing the die onto the floor.', 'Actually, your concentration was thrown off. Let\'s try again later.', 'Oh no! A die fell off of the table! Where did it go...?', 'Despite your best efforts, you managed to drop a die.. Where did it go?', 'Where did the dice go?']
-            document.getElementById('box1').innerHTML = rando(interruptions);
+            revealText(rando(interruptions));
+            new Audio("media/audio/blip2.mp3").play();
         } else {
-            new Audio('media/rollDice.mp3').play();
+            new Audio('media/audio/rollDice.mp3').play();
             var wins = ['Lucky! You\'re a winner!', 'We have a winner!', 'Nice.', 'Great!', 'Finally!', 'Yes!', 'Brilliant!', 'Perfect roll!', 'Perfect!', 'That\'s great!', 'Unbelievable!'];
 		    var losses = ['Unlucky!', 'Unfortunate!', 'Nope.', 'What if you placed down a higher bet?', 'Not quite.', 'Not quite!', 'Nah.', 'Nope!', 'No!', 'Not quite!', 'Tough luck.', 'Maybe next time.', 'Typical.', 'Typical!', 'How unlucky!', 'Most unfortunate!', 'Oh!'];
 			var message = `${res == 6 ? rando(wins) : rando(losses)} You rolled ${res > 10 && res !== 12 ? 'an' : 'a'} ${res} out of 6${betAmount !== 0 ? ' ' : '!'}`;
 			if (betAmount !== 0) message += win ? ' and won a bet of C$' + betAmount + '! (not really, bets haven\'t been enabled yet)':' and lost a bet of C$' + betAmount + '! (not really, bets haven\'t been enabled yet)';
-			document.getElementById('box1').innerHTML = message;
+			revealText(message);
             if (res == 6) document.getElementById('logo').src = 'media/rolldice.gif';
             /* if (betAmount !== 0) {
                 if (win) {
@@ -229,44 +229,21 @@ function saveData () {
     revealText('Welcome to the Save Data menu. You can record all of your progress across the game here, and pick up from where you left off whenever you want to.', document.getElementById('box1'));
 }
 
-function revealText (text, element) {
-    if (data.temp.revealTextInt) clearInterval(data.temp.revealTextInt);
+function revealText (text) {
+    if (data.temp.revealTextInt) {
+        clearInterval(data.temp.revealTextInt);
+        document.getElementById('box1').innerHTML = '';
+    }
     var i = -1;
-    var blip = new Audio('../media/audio/blip.mp3')
+    var blip = new Audio('media/audio/blip.mp3')
     data.temp.revealTextInt = setInterval(() => {
         i++;
-        element.innerHTML += text.charAt(i);
+        document.getElementById('box1').innerHTML += text.charAt(i);
         blip.pause();
         blip.play();
         if (i == text.length) clearInterval(data.temp.revealTextInt);
     }, 20);
 }
-
-function startGame() {
-    playScene({
-        'notes': ['Introduction'],
-        'cmds': [
-            { 'cmd': 'background', 'input': { 'colors': [[0, 0, 0]] }},
-            { 'cmd': 'wait', 'input': 7000 },
-            { 'cmd': 'dialogue', 'input': { 'speaker': null, 'speech': '...' }},
-            { 'cmd': 'wait', 'input': 4000 },
-            { 'cmd': 'dialogue' },
-            { 'cmd': 'dialogue', 'input': { 'speaker': null, 'speech': '...Where am I...?' }},
-            { 'cmd': 'options', 'input': { 'Stand up': 'wait = false;' }},
-            { 'cmd': 'wait' },
-            { 'cmd': 'options' },
-            { 'cmd': 'audio', 'input': 'intro.mp3' },
-            { 'cmd': 'dialogue' },
-            { 'cmd': 'dialogue', 'input': { 'speaker': 0, 'speech': 'You arise on cold stone in a dimly lit room. You can vaguely feel the ground below you begin to shake. Some kind of debris falls from the ceiling, but you can\'t make out what it is.' }},
-            { 'cmd': 'wait', 'input': 2000 },
-            { 'cmd': 'options', 'input': { 'Continue': 'wait = false;' } },
-            { 'cmd': 'wait' },
-            { 'cmd': 'dialogue' },
-            { 'cmd': 'dialogue', 'input': { 'speaker': 0, 'speech': 'No.' }}
-        ]
-    });
-}
-
 
 function hideAll () {
     hideAllButtons();
@@ -311,90 +288,6 @@ data.temp.cursorAnimInfo.sendControl = setInterval(() => {
     document.getElementById('thing').style.top = data.temp.cursorAnimInfo.y + '%';
 }, 10); */
 
-function playScene (scene) {
-    hideAll();
-    setTimeout(() => {
-        showElement('content');
-        showElement('box1');
-        new Audio('blip2.mp3').play();
-        document.getElementById('box1').innerHTML = scene.notes.join('<br>');
-        setTimeout(() => {
-        hideElement('content');
-        setTimeout(() => { document.getElementById('box1').innerHTML = ''; }, 500);
-        var wait = false;
-        var i = -1
-        var scenePlayer = setInterval(() => {
-            if (!wait) {
-                i++;
-                var cmd = scene.cmds[i].cmd.toLowerCase();
-                var input = scene.cmds[i].input;
-                switch (cmd) {
-                    case 'hideall':
-                        hideAll();
-                    break;
-                    case 'wait':
-                        wait = true;
-                        if (input) setTimeout(() => { wait = false }, input);
-                    break;
-                    case 'background':
-                        if (!input) {
-                            if (data.temp.sceneBackgroundInterval) clearInterval(data.temp.sceneBackgroundInterval);
-                        } else {
-                            if (!input.colors) input.colors = [[0, 0, 0]];
-                            if (input.colors.length == 1) { 
-                                fadeInBackground(input.colors[0][0], input.colors[0][1], input.colors[0][2]);
-                            } else {
-                                var i2 = -1;
-                                data.temp.sceneBackgroundInterval = setInterval(() => {
-                                    i2++;
-                                    fadeInBackground(input.colors[i2][0], input.colors[i2][1], input.colors[i2][2]);
-                                    if (i2 == input.colors.length - 1) i2 = -1;
-                                }, input.freq || 5000);
-                            }
-                        }
-                    break;
-                    case 'dialogue':
-                        if (!input) {
-                            document.getElementById('box1').innerHTML = '';
-                        } else {
-                            var txt = '';
-                            if (!input.speaker) txt = '\'' + input.speech + '\' ';
-                            if (input.speaker == 0) txt = input.speech;
-                            wait = true;
-                            setTimeout(() => { wait = false; }, txt.length * 20);
-                            showElement('content');
-                            showElement('box1');
-                            revealText(txt, document.getElementById('box1'));
-                        }
-                    break;
-                    case 'eval':
-                        if (input) eval(input);
-                    break;
-                    case 'audio':
-                        if (input) new Audio(input).play();
-                    break;
-                    case 'options':
-                        if (input) {
-                            showElement('navbar');
-                            for (var i3 = 0; i3 < Object.keys(input).length; i3++) {
-                                console.log(Object.keys(input)[i3]);
-                                console.log(input[Object.keys(input)[i3]])
-                                eval(`newButton('${Object.keys(input)[i3]}', () => {
-                                    eval('${input[Object.keys(input)[i3]]}');
-                                })`);
-                            }
-                        } else {
-                            hideAllButtons();
-                        }
-                    break;
-                }
-            }
-            if (i >= scene.cmds.length - 1) clearInterval(scenePlayer);
-        }, 10);
-        }, 2000);
-    }, 2000);
-}
-
 function showMenu () {
     new Audio('blip2.mp3').play();
     fadeInBackground(20,0,0);
@@ -408,9 +301,8 @@ function showMenu () {
     hideElement('box2');
     document.getElementById('box2').innerHTML = '';
     hideAllButtons();
-    document.getElementById('logo').src = 'media/easypea2.png';
-    newButton('Start Game', startGame);
-    newButton('Save Data', saveData);
+    document.getElementById('logo').src = 'media/easypea3.png';
+    newButton('Roll the Dice!', rollDice);
 }
 
 window.onload = () => {

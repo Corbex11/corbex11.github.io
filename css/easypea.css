@@ -153,25 +153,6 @@ footer {
 	0% {opacity:1;}
 	100% {opacity:0;}
 }
-@keyframes enterSlideDown {
-	0%   {
-		opacity: 0;
-		top: 0%;
-	}
-	100% {
-		opacity: 1;
-		top: 50%;
-	}
-}
-@keyframes enterSlideRight {
-	0%   {
-		left: 0%;
-	}
-	100% {
-		left: 100%;
-	}
-}
-
 ::-webkit-scrollbar {
 	width: 10px;
 }
