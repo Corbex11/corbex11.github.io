@@ -1,5 +1,5 @@
 /* callum fisher - corbex11@gmail.com
-last updated: 27/12/21 */
+last updated: 4/1/2022 */
 
 const days = [
     'Sunday',
@@ -78,6 +78,6 @@ window.onload = () => {
 
     // Thanks: https://stackoverflow.com/questions/18983138/
 
-    if (hour < 7) document.getElementById('intro').innerHTML += '<br><br>Anyway, I won\'t bore you with any more of that. It is ' + hour + ' AM after all.';
+    if (0 < hour < 7) document.getElementById('intro').innerHTML += '<br><br>Anyway, I won\'t bore you with any more of that. It is ' + hour + ' AM after all.';
 
 }
