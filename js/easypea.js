@@ -1,5 +1,5 @@
 /* callum fisher - corbex11@gmail.com
-last updated 27/12/2021 */
+last updated 4/1/2022 */
 
 var audio = new Audio();
 
@@ -31,17 +31,14 @@ function showElement (element) {
     }
 }
 
-function restoreBackgroundColours () {
-    fadeInBackground(10, 10, 10);
-}
-
 backgroundChangeInProgress = false;
-function fadeInBackground(R, G, B, element) {
+function fadeInBackground(R, G, B) {
     var waitForBackgroundChange = setInterval(() => {
         if (!backgroundChangeInProgress) {
             clearInterval(waitForBackgroundChange);
             backgroundChangeInProgress = true;
-            if (!element) element = document.getElementById('content');
+            // if (!element) element = document.getElementById('topbar');
+            var element = document.getElementById('topbar');
             if (!element.style.background) element.style.background = window.getComputedStyle(document.getElementById('content')).backgroundColor;
             var rgb = element.style.background.split('rgb(')[1].split(')')[0].replace(/ /g,'').split(',');
             var r = Number(rgb[0]);
@@ -54,7 +51,8 @@ function fadeInBackground(R, G, B, element) {
                 if (R < r) r--;
                 if (G < g) g--;
                 if (B < b) b--;
-                element.style.background = `rgb(${r},${g},${b})`;
+                document.getElementById('topbar').style.background = `rgb(${r},${g},${b})`;
+                document.getElementById('navbar').style.background = `rgb(${r},${g},${b})`;
                 if (r == R && g == G && b == B) {
                     clearInterval(int);
                     backgroundChangeInProgress = false;
@@ -399,18 +397,18 @@ function playScene (scene) {
 
 function showMenu () {
     new Audio('blip2.mp3').play();
-    restoreBackgroundColours();
+    fadeInBackground(20,0,0);
     if (data.temp.revealTextInt) clearInterval(data.temp.revealTextInt);
     showElement('navbar');
     showElement('topbar');
     showElement('content');
     showElement('box1');
     document.getElementById('box1').innerHTML = '';
-    revealText('Welcome to my attempt at creating some sort of platform for basic text-based games.', document.getElementById('box1'));
+    revealText('Hello! Welcome to my attempt at creating some sort of platform for basic text-based games. I\'ve placed some options below.', document.getElementById('box1'));
     hideElement('box2');
     document.getElementById('box2').innerHTML = '';
     hideAllButtons();
-    document.getElementById('logo').src = 'media/lobby.png';
+    document.getElementById('logo').src = 'media/easypea2.png';
     newButton('Start Game', startGame);
     newButton('Save Data', saveData);
 }
