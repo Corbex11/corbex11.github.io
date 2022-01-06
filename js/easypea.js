@@ -292,7 +292,6 @@ function showMenu () {
     synth.ready().then(() => {
         synth.loadMIDIUrl('media/midi.mid');
         synth.playMIDI();
-        var synth = new WebAudioTinySynth();
     });
     fadeInBackground(20,0,0);
     if (data.temp.revealTextInt) clearInterval(data.temp.revealTextInt);
