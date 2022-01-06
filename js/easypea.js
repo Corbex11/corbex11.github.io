@@ -1,9 +1,9 @@
 /* callum fisher - corbex11@gmail.com
 last updated 6/1/2022 */
 
-const audio = new Audio();
-const synth = new WebAudioTinySynth();
-const data = {
+var audio = new Audio();
+var synth = new WebAudioTinySynth();
+var data = {
     temp: {
         buttons: []
     }
