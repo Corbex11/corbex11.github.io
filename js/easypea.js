@@ -289,7 +289,7 @@ data.temp.cursorAnimInfo.sendControl = setInterval(() => {
 
 function showMenu () {
     new Audio('media/audio/blip2.mp3').play();
-    var MIDI = new WebAudioTinySynth();
+    MIDI = new WebAudioTinySynth();
     MIDI.loadMIDIUrl('media/midi.mid');
     MIDI.playMIDI();
     fadeInBackground(20,0,0);
