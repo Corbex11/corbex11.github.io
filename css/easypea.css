@@ -143,7 +143,11 @@ footer {
 .navbar a:hover {
 	color: gray;
 }
-
+@keyframes animateBg {
+	0% { background-position: 0% 0%; }
+	100% { background-position: 100% 0%; }
+}
+  
 /* Animations */
 @keyframes fadeIn {
 	0% {opacity:0;}

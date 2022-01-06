@@ -1,5 +1,5 @@
 /* callum fisher - corbex11@gmail.com
-last updated 4/1/2022 */
+last updated 5/1/2022 */
 
 var audio = new Audio();
 
@@ -109,8 +109,8 @@ function rollDice() {
     revealText('Let\'s get started, then! Will you be placing a bet on this roll?', document.getElementById("box1"));
     hideAllButtons();
     fadeInBackground(0, 0, 40);
-    document.getElementById('logo').src = 'media/dice.png';
-    document.getElementById('logo').width = "200";
+    document.getElementById('logo').src = 'media/rolldice.png';
+    document.getElementById('logo').width = '200';
     var betAmount = 0;
     var confirmBetAmount = function () {
         document.getElementById('box1').innerHTML = 'How much are you going to bet?';
@@ -152,8 +152,7 @@ function rollDice() {
         var res = Math.floor(Math.random()*6) + 1;
 		var win = res == 6;
         if (interrupt && betAmount == 0) {
-            var interruptions = ['Wait - where are they?', 'Did it fall off of the table?', 'Please, stop throwing the die onto the floor.', 'Actually, your concentration was thrown off. Let\'s try again later.', 'Oh no! A die fell off of the table! Where did it go...?', 'Despite your best efforts, you managed to drop a die.. Where did it go?', 'Where did the dice go?']
-            revealText(rando(interruptions));
+            revealText(rando(['Wait - where are they?', 'Did it fall off of the table?', 'Please, stop throwing the die onto the floor.', 'Actually, your concentration was thrown off. Let\'s try again later.', 'Oh no! A die fell off of the table! Where did it go...?', 'Despite your best efforts, you managed to drop a die.. Where did it go?', 'Where did the dice go?']));
             new Audio("media/audio/blip2.mp3").play();
         } else {
             new Audio('media/audio/rollDice.mp3').play();
@@ -296,8 +295,9 @@ function showMenu () {
     showElement('topbar');
     showElement('content');
     showElement('box1');
+    document.getElementById('logo').width = '100';
     document.getElementById('box1').innerHTML = '';
-    revealText('Hello! Welcome to my attempt at creating some sort of platform for basic text-based games. I\'ve placed some options below.', document.getElementById('box1'));
+    revealText('Hello! Welcome to my attempt at creating some sort of platform for basic text-based games. Options are below.', document.getElementById('box1'));
     hideElement('box2');
     document.getElementById('box2').innerHTML = '';
     hideAllButtons();
