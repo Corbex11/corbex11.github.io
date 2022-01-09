@@ -11,7 +11,7 @@ var data = {
 function hideElement (element) {
     var element = document.getElementById(element);
     if (element.style.display == 'block' || element.style.display == '') {
-        element.style.animation = 'fadeOut 0.5s linear infinite'
+        element.style.animation = 'fadeOut 0.5s linear infinite' // to-do: jquery
         setTimeout(() => {
             element.style.display = 'none';
             element.style.animation = '';
@@ -249,9 +249,7 @@ function hideAll () {
     hideElement('topbar');
     hideElement('content');
     hideElement('box1');
-    hideElement('box2');
     document.getElementById('box1').innerHTML = '';
-    document.getElementById('box2').innerHTML = '';
 }
 
 /* data.temp.doCursorAnimation = true;
@@ -289,6 +287,7 @@ data.temp.cursorAnimInfo.sendControl = setInterval(() => {
 function showMenu () {
     new Audio('media/audio/blip2.mp3').play();
     var synth = new WebAudioTinySynth();
+    synth.loadMIDIUrl('media/midi.mid');
     synth.ready().then(() => {
         synth.loadMIDIUrl('media/midi.mid');
         synth.playMIDI();
