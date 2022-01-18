@@ -233,12 +233,9 @@ function revealText (text) {
         document.getElementById('box1').innerHTML = '';
     }
     var i = -1;
-    var blip = new Audio('media/audio/blip.mp3')
     data.temp.revealTextInt = setInterval(() => {
         i++;
         document.getElementById('box1').innerHTML += text.charAt(i);
-        blip.pause();
-        blip.play();
         if (i == text.length) clearInterval(data.temp.revealTextInt);
     }, 20);
 }
