@@ -1,5 +1,5 @@
 /* callum fisher - corbex11@gmail.com
-last updated 6/1/2022 */
+last updated 18/1/2022 */
 
 var audio = new Audio();
 var data = {
@@ -286,12 +286,6 @@ data.temp.cursorAnimInfo.sendControl = setInterval(() => {
 
 function showMenu () {
     new Audio('media/audio/blip2.mp3').play();
-    var synth = new WebAudioTinySynth();
-    synth.loadMIDIUrl('media/midi.mid');
-    synth.ready().then(() => {
-        synth.loadMIDIUrl('media/midi.mid');
-        synth.playMIDI();
-    });
     fadeInBackground(20,0,0);
     if (data.temp.revealTextInt) clearInterval(data.temp.revealTextInt);
     showElement('navbar');
