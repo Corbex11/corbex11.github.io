@@ -27,11 +27,13 @@ body {
 }
 
 .logo {
-	background: rgb(220, 220, 220);
+	background: rgb(200, 200, 200);
 	border-top-right-radius: 5px;
 	border-top-left-radius: 5px;
 	border-bottom-right-radius: 5px;
 	border-bottom-left-radius: 5px;
+	border: gray solid;
+	border-width: 1px;
 }
 
 @media (prefers-color-scheme: dark) {
