@@ -1,5 +1,5 @@
-/* callum fisher - corbex11@gmail.com
-last updated: 27/12/2021 */
+/* callum fisher - cf.fisher.bham@gmail.com
+last updated: 27.12.2021 */
 
 window.onload = () => {
     var count = 0;

@@ -1,5 +1,5 @@
-/* callum fisher - corbex11@gmail.com
-last updated: 4/1/2022 */
+/* callum fisher - cf.fisher.bham@gmail.com
+last updated: 4.1.2022 */
 
 const days = [
     'Sunday',

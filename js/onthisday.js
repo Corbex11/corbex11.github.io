@@ -1,5 +1,5 @@
-/* callum fisher - corbex11@gmail.com
-last updated: 27/12/2022 */
+/* callum fisher - cf.fisher.bham@gmail.com
+last updated: 27.12.2022 */
 
 const events = [
     { 'start': '12 23', 'end': '12 30', 'msg': '<img src="media/santahat.png"> Merry Christmas!' },

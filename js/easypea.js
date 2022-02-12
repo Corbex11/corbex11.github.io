@@ -1,5 +1,5 @@
-/* callum fisher - corbex11@gmail.com
-last updated 18/1/2022 */
+/* callum fisher - cf.fisher.bham@gmail.com
+last updated: 12.2.2022 */
 
 var audio = new Audio();
 var data = {
@@ -7,6 +7,11 @@ var data = {
         buttons: []
     }
 }
+
+data.temp.synth = new WebAudioTinySynth();
+data.temp.synth.ready().then(() => {
+    data.temp.synth.loadMIDIUrl("media/midi2.mid");
+});
 
 function hideElement (element) {
     var element = document.getElementById(element);
@@ -105,6 +110,9 @@ function addQuitButton () {
 }
 
 function rollDice() {
+    data.temp.synth.stopMIDI();
+    data.temp.synth.loadMIDIUrl("media/midi2.mid");
+    data.temp.synth.playMIDI();
     revealText('Let\'s get started, then! Will you be placing a bet on this roll?', document.getElementById("box1"));
     hideAllButtons();
     fadeInBackground(0, 0, 40);
@@ -283,6 +291,7 @@ data.temp.cursorAnimInfo.sendControl = setInterval(() => {
 
 function showMenu () {
     new Audio('media/audio/blip2.mp3').play();
+    data.temp.synth.playMIDI();
     fadeInBackground(20,0,0);
     if (data.temp.revealTextInt) clearInterval(data.temp.revealTextInt);
     showElement('navbar');
