@@ -44,16 +44,18 @@ window.onload = () => {
 
     var date = new Date();
     var hour = date.getHours();
-
-    document.getElementById('welcome').innerHTML = `Good ${hour >= 12 ? hour >= 17 && hour < 20 ? 'evening' : 'afternoon' : 'morning'}!`;
+    var welcome = document.getElementById('welcome');
+    var subtitle = document.getElementById('subtitle');
+    welcome.innerHTML = `${date.getDay() == 5 ? 'Happy ' + days[date.getDay()] + '!' : `Good ${hour >= 12 ? hour >= 17 && hour < 20 ? 'evening' : 'afternoon' : 'morning'}.`}`;
+    fetchEvents(date.getDate(), date.getMonth() + 1).forEach((item, index, array) => {
+        subtitle.innerHTML = '<h3>' + item + '</h3>';
+    });    
 
     var infoboard = document.getElementById('infoboard');
     infoboard.style.display = 'block';
     infoboard.innerHTML = `<center>(i) Information Board (i)</center><hr><ul><li>Today is ${days[date.getDay()]}, ${suffix_of(date.getDate())} of ${months[date.getMonth()]} ${date.getFullYear()}</li></ul>`;
-
-    document.getElementById('infoboardbr').style.display = 'block';
     
-    var stringToAdd = infoboard.innerHTML + '<ul>';
+    /* var stringToAdd = infoboard.innerHTML + '<ul>';
 
     var fetchNews = () => {
         fetch(`${location.href}/../infoboard.txt`).then((data) => {
@@ -74,7 +76,7 @@ window.onload = () => {
             stringToAdd = '';
             fetchNews();
         }
-    });
+    }); */
 
     // Thanks: https://stackoverflow.com/questions/18983138/
 
