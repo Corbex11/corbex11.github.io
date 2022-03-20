@@ -1,64 +1,93 @@
 <!-- callum fisher - cf.fisher.bham@gmail.com
-last updated: 12.2.2022 -->
+last updated: 20.3.2022 -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+	<meta charset="utf-8">
 	<link rel="stylesheet" href="css/standard.css"/>
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.png">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="A changelog dating back to the 3rd of February 2022.">
-	<title>Website Changelog - Callum Fisher</title>
+	<title>Website Changelog</title>
 </head>
 <body>
-	<div class="navbar">
-		<a href="index.html">Directory</a>
-		<a href="oldchangelog.html">See the old changelog</a>
-		<a href="#latest" style="float: right;">See latest</a>
+	<div class="navbar" id="top">
+		<a href="index.html" title="yes" class="button">Directory</a>
+		<a href="oldchangelog.html" class="button">See the old changelog</a>
+		<a href="#latest" class="button secondary">See latest</a>
 	</div>
+	<!-- Formatting rules for new entries to the changelog:
+		1. Start with the date on which changes were made.
+		2. Prefix = for general changes (such as replacing an image, without removing the space in which it is shown).
+		3. Prefix + for additions (such as new features or pages).
+		4. Prefix - for removals (such as removal of unused images, sounds, or pages).
+		5. Optionally, place any relevant images wherever deemed appropriate in the entry.
+	-->
 	<div class="content">
 		<div class="box">
-			<!-- Formatting rules for new entries to the changelog:
-				1. Start with the date on which changes were made.
-				2. Prefix = for general changes (such as replacing an image, without removing the space in which it is shown).
-				3. Prefix + for additions (such as new features or pages).
-				4. Prefix - for removals (such as removal of unused images, sounds, or pages).
-				5. Optionally, place any relevant images wherever deemed appropriate in the entry.
-			-->
-			<h1>Website Changelog</h1>
-			<p>
-				Looking back on the progress of a project can be very satisfying. So, I'm creating this changelog to look back on in the future.<br>
-				You can also see the <a href="oldchangelog.html">old changelog</a> for a list previous changes. But, it may be more confusing due to the lack of context behind some entries.<br>
+			<article>
+				<h1>Website Changelog</h1>
+				<section>
+					<p>
+						Looking back on the progress of a project can be very satisfying. So, I'm creating this changelog to look back on in the future.<br>
+						You can also see the <a href="oldchangelog.html">old changelog</a> for a list previous changes. But, it may be more confusing due to the lack of context behind some entries.
+					</p>
+				</section>
+				<section>
+					<h2>3rd February 2022:</h2>
+					+ Began a new changelog.<br>
+					- Removed unused code for the old article viewer.
+				</section>
+				<section>
+					<h2>5th February 2022:</h2>
+					= Updated e-mail addresses in files.<br>
+					= Changed hyperlink colour in dark mode to be more readable.<br>
+					- Removed unused pages.<br>
+					- Removed the logo from the homepage.
+				</section>
+				<section>
+					<h2>6th February 2022:</h2>
+					= Updated Easypea Games.
+				</section>
+				<section>
+					<h2>12th February 2022:</h2>
+					= Updated e-mail addresses and dates in files for better consistency.<br>
+					<br>
+					<img src="media/12-2-2022-12-45-AM.png" alt="Example of the new date formats, placed at the top of every file on the website."><br>
+					<br>
+					= Made the Directory (homepage) a bit sleeker: Centered the welcome text and merged the functions of the infoboard with the welcome text.<br>
+					<br>
+					Old:<br><img src="media/12-2-2022-1-33-PM.png" alt="Previous version of the Directory page with two redundant boxes and text on the left instead of the center." width="100%"><br>
+					<br>
+					New:<br><img src="media/12-2-2022-5-28-PM.png" alt="Sleeker version of the Directory page with centered text." width="100%"><br>
+				</section>
+				<section>
+					<h2>2nd March 2022:</h2>
+					= Made the background colour in dark mode consistent with other UI elements.<br>
+					= Changed outdated e-mail addresses in some files.
+				</section>
+				<section>
+					<u><h2>13th March 2022:</h2></u>
+					= Moved styling for some buttons from HTML to stylesheets.<br>
+					= Made buttons more consistent and more visible.<br>
+					- Removed the Articles page.
+				</section>
+				<section id="latest">
+					<u><h2>20th March 2022:</h2></u>
+					= Improved button colours.
+					= Updated page titles.
+				</section>
 				<br>
-				The following is a list of changes I've made to the site, starting from the 3rd of February 2022.
-			</p>
-			<h2>3rd February 2022:</h2>
-			+ Began a new changelog.<br>
-			- Removed unused code for the old article viewer.
-			<h2>5th February 2022:</h2>
-			= Updated e-mail addresses in files.<br>
-			= Changed hyperlink colour in dark mode to be more readable.<br>
-			- Removed unused pages.<br>
-			- Removed the logo from the homepage.
-			<h2>6th February 2022:</h2>
-			= Updated Easypea Games.
-			<h2 id="latest">12th February 2022:</h2>
-			= Updated e-mail addresses and dates in files for better consistency.<br>
-			<br>
-			<img src="media/12-2-2022-12-45-AM.png" alt="Example of the new date formats, placed at the top of every file on the website."><br>
-			<br>
-			= Made the Directory (homepage) a bit sleeker: Centered the welcome text and merged the functions of the infoboard with the welcome text.<br>
-			<br>
-			Old:<br><img src="media/12-2-2022-1-33-PM.png" alt="Previous version of the Directory page with two redundant boxes and text on the left instead of the center." width="100%"><br>
-			<br>
-			New:<br><img src="media/12-2-2022-5-28-PM.png" alt="Sleeker version of the Directory page with centered text." width="100%"><br>
+				<a class="button secondary flashy" href="#top" meta="Back to Top">Go back to top</a>
+			</div>
 		</div>
-	</div>
+	</article>
 </body>
 <footer>
 	<div class="separator">
 		<h2>Notes</h2>
 		<ul>
-			<li>Last updated: 12.2.2022</li>
+			<li>Last updated: 20.3.2022</li>
 		</ul>
 	</div>
 </footer>
