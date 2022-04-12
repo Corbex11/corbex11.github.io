@@ -27,9 +27,13 @@ body {
 }
 
 .button {
+	background-color: rgb(220, 220, 220);
 	float: left;
 	color: black;
 	text-align: center;
+	font-size: 100%;
+	font-family: "Dosis";
+	border: none;
 	padding-left: 20px;
 	padding-right: 20px;
 	padding-top: 10px;

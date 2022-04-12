@@ -47,9 +47,9 @@ window.onload = () => {
     var welcome = document.getElementById('welcome');
     var subtitle = document.getElementById('subtitle');
     welcome.innerHTML = `${date.getDay() == 5 ? 'Happy ' + days[date.getDay()] + '!' : `Good ${hour >= 12 ? hour >= 17 && hour < 20 ? 'evening' : 'afternoon' : 'morning'}!`}`;
-    fetchEvents(date.getDate(), date.getMonth() + 1).forEach((item, index, array) => {
+    fetchEvents(date.getDate(), date.getMonth() + 1).forEach((item) => {
         subtitle.innerHTML = '<h3>' + item + '</h3>';
-    });    
+    });
 
     var infoboard = document.getElementById('infoboard');
     infoboard.style.display = 'block';

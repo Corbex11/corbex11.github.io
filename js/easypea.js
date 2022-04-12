@@ -56,7 +56,6 @@ function fadeInBackground(R, G, B) {
                 if (G < g) g--;
                 if (B < b) b--;
                 document.getElementById('topbar').style.background = `rgb(${r},${g},${b})`;
-                document.getElementById('navbar').style.background = `rgb(${r},${g},${b})`;
                 if (r == R && g == G && b == B) {
                     clearInterval(int);
                     backgroundChangeInProgress = false;
@@ -78,7 +77,7 @@ function rando (r) {
 
 function newButton (label, onclick) { // https://sebhastian.com/javascript-create-button/
     return new Promise (function(resolve, reject) {
-        var btn = document.createElement('a');
+        var btn = document.createElement('button');
         btn.innerHTML = label || data.temp.buttons.length;
         btn.addEventListener('click', onclick);
         document.getElementById('navbar').appendChild(btn);

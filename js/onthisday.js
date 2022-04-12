@@ -6,7 +6,7 @@ const events = [
     { 'start': '10 31', 'end': '11 1', 'msg': 'Happy Halloween!'},
     { 'start': '11 5', 'end': '11 6', 'msg': 'Happy bonfire night!' },
     { 'start': '11 11', 'end': '11 11', 'msg': 'Today is Remembrance Day' }
-]
+];
 
 // to-do: combine these two functions:
 
