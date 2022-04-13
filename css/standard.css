@@ -203,6 +203,10 @@ img.shadow {
 	user-select: none;
 }
 
+.hidden {
+	display: none;
+}
+
 .navbar {
 	background: white;
 	overflow: hidden;

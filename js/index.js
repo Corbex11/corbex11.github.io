@@ -1,5 +1,5 @@
-/* callum fisher - cf.fisher.bham@gmail.com
-last updated: 4.1.2022 */
+/* Callum Fisher - cf.fisher.bham@gmail.com
+Edited: 13.4.2022 */
 
 const days = [
     'Sunday',
@@ -28,17 +28,21 @@ const months = [
 
 
 function suffix_of (i) {
-
     var j = i % 10, k = i % 100;
-
     if (j == 1 && k != 11) return i + 'st';
     if (j == 2 && k != 12) return i + 'nd';
     if (j == 3 && k != 13) return i + 'rd';
-
     return i + 'th';
-
 }
 
+function showCredits () {
+    /* if (document.getElementById("credits").style.display !== "none") {
+        document.getElementById("credits").style.display = "none";
+    } else { */
+        document.getElementById("credits").style.display = "block";
+    // }
+    document.getElementById("creditsButton").classList.add("inactive");
+}
 
 window.onload = () => {
 
