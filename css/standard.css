@@ -1,5 +1,5 @@
 /* callum fisher - cf.fisher.bham@gmail.com
-last updated 20.3.2022 */
+last updated 12.4.2022 */
 
 body {
 	background: rgb(220,220,220);
@@ -79,15 +79,15 @@ body {
 
 @media (prefers-color-scheme: dark) {
 	.button {
-		background: rgb(0,50,100);
+		background: rgb(60, 60, 60);
 		color: white;
 	}
 	.button:hover {
-		background: rgb(0,100,150);
+		background: rgb(40, 40, 40);
 		color: white;
 	}
 	.button.inactive {
-		background: rgb(0, 20, 40);
+		background: rgb(30, 30, 30);
 		color: gray;
 	}
 }
