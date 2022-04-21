@@ -1,8 +1,9 @@
 <!-- callum fisher - cf.fisher.bham@gmail.com
-last updated: 13.4.2022 -->
+Edited: 21.4.2022 -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
+		<meta charset="utf-8">
 		<link rel="stylesheet" href="../css/standard.css"/>
 		<link rel="shortcut icon" type="image/x-icon" href="../favicon.png">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,21 +13,59 @@ last updated: 13.4.2022 -->
     <body>
 		<div class="navbar" id="top">
 			<a href="../index.html" class="button">Directory</a>
-			<a href="../articles.html" class="button secondary inactive">Other articles</a>
+			<a href="../projects.html" class="button secondary">Other projects</a>
 		</div>
         <div class="content">
 			<div class="box">
 				<article>
-					<center><h2>Crystal FM: A radio-like music bot for Discord.</h2></center>
-					<img src="media/cfm.png" class="shadow" style="float: left;">
-					<p><b>Crystal FM</b> was a bot built for playing music in voice channels on <a href="https://discord.com/">Discord</a>. Unlike most Discord music bots at the time, Crystal FM was not intended for on-demand song requests. Instead, it was supposed to provide easy access to a steady stream of specific songs.</p>
-					<p>The songs Crystal FM played mostly consisting of 80s, 70s and 60s pop music, intertwined with a wide range of instrumental tracks. They could've been songs I'd heard from the radio, films, e.t.c.</p>
-					<p>I hosted Crystal FM continuously at home using a Dell OptiPlex 760 for about year, after which it was no longer practical to keep running. The bot was primarily used in a server of online friends where we would regularly listen to music together.</p>
-					<p>Before all of this, however, Crystal FM existed under a different name as <b>Wave24R</b>. This was short for Wave24 Radio, with the "24" referencing the 24/7 music playback in a dedicated voice channel. This version of the bot was only hosted in my personal Discord server, and was accompanied by a separate bot titled <b>Pre70sR</b>, short for Pre-1970s Radio. As the name suggests, this version of the bot was dedicated to all things pre-1970s, and played any older tracks I added to the collection. This meant that Wave24 could continue without mixing multiple distinct eras, creating a more consistent listening experience.</p>
-					<p>There are four iterations of the code powering Crystal FM:
+					<center>
+						<h2>Crystal FM: A radio-like music bot for Discord.</h2>
+						<h3>Introduction</h3>
+					</center>
+					<img src="media/cfm.png" class="shadow" style="float: left;" alt="Crystal FM logo">
+					<p>
+						<b>Crystal FM</b> was a bot built for playing music in voice channels on <a href="https://discord.com">Discord</a>.
+						Unlike most Discord music bots at the time, Crystal FM was not intended for on-demand song requests.
+						Instead, it was supposed to provide easy access to a steady stream of specific songs.
+					</p>
+					<p>
+						The songs Crystal FM played mostly consisting of 80s, 70s and 60s pop music, intertwined with a wide range of instrumental tracks.
+						They could've been songs I'd heard from the radio, films, e.t.c.
+					</p>
+					<p>
+						I hosted Crystal FM continuously at home using a Dell OptiPlex 760 for about year, after which it was no longer practical to keep running.
+						The bot was primarily used in a server of online friends where we would regularly listen to music together.
+					</p>
+					<hr>
+					<center><h3>History</h3></center>
+					<p>
+						Before all of this, however, Crystal FM existed under a different name as <b>Wave24R</b>.
+						This was short for Wave24 Radio, with the "24" referencing the 24/7 music playback in a dedicated voice channel.
+						This version of the bot was only hosted in my personal Discord server, and was accompanied by a separate bot titled <b>Pre70sR</b>, short for Pre-1970s Radio.
+						As the name suggests, this version of the bot was dedicated to all things pre-1970s, and played any older tracks I added to the collection.
+						This meant that Wave24 could continue without mixing multiple distinct eras, creating a more consistent listening experience.
+					</p>
+					<hr>
+					<img src="media/w24rr2.png" style="float: right;" alt="'Wave24R (rewrite #2)'">
+					<p>There are three iterations of the code powering Crystal FM:
 						<ol>
-							<li>test</li>
+							<b><li>Wave24R Discord Bot</li></b>
+							<p>
+								This version of Wave24R is a modular Discord bot built to represent different "brands" of music bot (such as Crystal FM).
+							</p>
+							<b><li>Wave24R Icecast Server</li></b>
+							<p>
+								This version of Wave24R was intended for use as an internet radio station. It created an audio livestream to broadcast the music to any client.
+								This worked in parallel with a simple Discord bot I built to listen to the stream (amongst others) in any Discord voice channel.<br>
+								To use it, you simply joined a voice channel and sent a command specifying which station you wanted to listen to.
+							</p>
+							<b><li>Crystal FM based on "S.A.F.E."</li></b>This was the final rewrite of Crystal FM
 						</ol>
+					</p>
+					<hr>
+					<center><h3>Technical Details</h3></center>
+					<p>
+						Crystal FM was written in <a href="js.html">JavaScript</a>. More specifically, the server-side runtime environment <a href="https://nodejs.org">Node.js</a>
 					</p>
 				</article>
 			</div>
@@ -35,7 +74,7 @@ last updated: 13.4.2022 -->
 	<footer>
 		<div class="separator">
 			<h2>Notes</h2>
-			<p><i>Written by Callum Fisher - Published: 12.4.2022 - Edited: 13.4.2022 (Added additional information about other iterations of Crystal FM)</i></p>
+			<p><i>Written by Callum Fisher - Published: 12.4.2022 - Edited: 21.4.2022 (Added additional information about other iterations of Crystal FM)</i></p>
 		</div>
 	</footer>
 </html>
