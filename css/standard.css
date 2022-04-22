@@ -1,5 +1,5 @@
-/* callum fisher - cf.fisher.bham@gmail.com
-last updated 12.4.2022 */
+/* Callum Fisher - cf.fisher.bham@gmail.com
+Edited: 12.4.2022 */
 
 body {
 	background: rgb(220,220,220);
@@ -138,6 +138,8 @@ img.shadow {
 	border-bottom-right-radius: 10px;
 	border-bottom-left-radius: 10px;
 	display: inline-block;
+	animation-name: fadeIn;
+	animation-duration: 1s;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -177,8 +179,6 @@ img.shadow {
 	color: black;
 	padding: 20px;
 	box-shadow: 1px 1px 1px gray;
-	animation-name: fadeIn;
-	animation-duration: 1s;
 	word-wrap: break-word;
 	overflow: hidden;
 	border-top-right-radius: 10px;
