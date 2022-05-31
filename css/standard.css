@@ -138,6 +138,7 @@ img.shadow {
 	padding: 10px;
 	animation-name: fadeIn;
 	animation-duration: 1s;
+	width: 100vh;
 	display: grid;
 	gap: 10px;
 	grid-template-columns: auto auto;
