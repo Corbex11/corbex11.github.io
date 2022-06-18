@@ -1,5 +1,5 @@
 /* Callum Fisher - cf.fisher.bham@gmail.com
-Edited: 31.5.2022 */
+Edited: 18.6.2022 */
 
 body {
 	background: rgb(220,220,220);
@@ -18,7 +18,7 @@ body {
 		color: rgb(220, 220, 220);
 	}
 	a:not(.button):visited {
-		color: rgb(153,154,255)
+		color: rgb(153,154,255);
 	}
 }
 
@@ -52,36 +52,35 @@ body {
 	color: black;
 	text-align: center;
 	border: none;
-	padding-left: 10px;
-	padding-right: 10px;
-	padding-top: 8px;
-	padding-bottom: 8px;
+	padding: 8px;
 	margin-left: 5px;
 	margin-right: 5px;
 	text-decoration: none;
-	border-top-right-radius: 5px;
-	border-top-left-radius: 5px;
-	border-bottom-right-radius: 5px;
-	border-bottom-left-radius: 5px;
+	border-radius: 5px;
+	-moz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 @keyframes flashy {
 	0% {
-		background: red;
+		background: rgb(120, 134, 155);
 	}
 	50% {
-		background: gray;
+		background: rgb(153, 154, 255);
 	}
 	100% {
-		background: red;
+		background: rgb(120, 134, 155);
 	}
 }
 
 .button.flashy {
 	color: white;
-	animation-name: flashy;
-	animation-duration: 5s;
-	animation-iteration-count: infinite;
+	animation: animateBg 14s linear infinite;
+		background-image: linear-gradient(90deg,#397d9d,#491cc2,#397d9d,#491cc2);
+		background-size: 300% 100%;
 }
 
 .button:hover {
@@ -89,10 +88,12 @@ body {
 }
 
 .button.background {
-	background: rgb(220,220,220);
+	background: rgb(120, 134, 155);
+	color: white;
 }
 
 .button.inactive {
+	background:rgb(40, 40, 40);
 	color: gray;
 }
 
@@ -104,19 +105,36 @@ body {
 	float: right;
 }
 
+.button.nofloat {
+	float: none;
+}
+
 @media (prefers-color-scheme: dark) {
 	.button {
-		color: white;
+		color: rgb(220,220,220);
 	}
 	.button:hover {
 		background: rgb(40, 40, 40);
-		color: white;
+		color:rgb(210, 210, 210);
 	}
 	.button.background {
-		background: rgb(40, 40, 40);
+		background: rgb(60, 60, 60);
+		color:rgb(210, 210, 210);
 	}
 	.button.inactive {
 		color: gray;
+	}
+	@keyframes flashy {
+		0% {
+			background: rgb(60, 60, 60);
+		}
+		50% {
+			background: rgb(153, 154, 255);
+			color: white;
+		}
+		100% {
+			background: rgb(60, 60, 60);
+		}
 	}
 }
 
@@ -149,7 +167,7 @@ img.shadow {
 @media (prefers-color-scheme: dark) {
 	.separator {
 		background: rgb(32, 32, 32);
-		color: white;
+		color: rgb(210, 210, 210);
 	}
 }
 
@@ -172,7 +190,7 @@ img.shadow {
 @media (prefers-color-scheme: dark) {
 	.content {
 		background: rgb(10, 10, 10);
-		color: white;
+		color: rgb(210, 210, 210);
 	}
 }
 
@@ -193,7 +211,7 @@ img.shadow {
 @media (prefers-color-scheme: dark) {
 	.box {
 		background: rgb(32, 32, 32);
-		color: white;
+		color: rgb(210, 210, 210);
 	}
 }
 
@@ -208,6 +226,11 @@ img.shadow {
 .hidden {
 	display: none;
 }
+
+@keyframes animateBg {
+	0% { background-position: 0% 0%; }
+	100% { background-position: 100% 0%; }
+  }	  
 
 .navbar {
 	background: white;
